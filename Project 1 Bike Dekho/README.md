@@ -1,12 +1,11 @@
 # 🚲 BikeDekho – Bike Sales Analysis using Excel
 *A Complete Excel-based Data Analytics Project*  
 **Author:** Simran Sharma | **Intern – Labmentix**  
-**Project Duration:** **17th Nov 2025 – 22nd Nov 2025**
+**Project Duration:** **17th Nov 2025 – 23rd Nov 2025**
 
 ## 📌 Project Overview
 
-**BikeDekho** is a hands-on **data analytics project** focused on understanding **bike purchase behavior** across different customer segments using **MS Excel**.  
-The aim was to **clean raw data**, perform **Exploratory Data Analysis (EDA)**, and create an **interactive dashboard** to identify **target users most likely to buy a bike**.
+**BikeDekho** is a hands-on **data analytics project** focused on understanding **bike purchase behavior** across different customer segments using **MS Excel**. The aim was to **clean raw data**, perform **Exploratory Data Analysis (EDA)**, and create an **interactive dashboard** to identify **target users most likely to buy a bike**.
 
 ---
 
@@ -94,7 +93,7 @@ Each **row = 1 customer**, and each **column = 1 attribute**.
 ✔ KPI Summary Cards  
 ✔ Bar, Pie & Column Charts  
 ✔ Occupation-wise analysis  
-✔ Dashboard formatting using slicers & data labels
+✔ Dashboard formatting using cards, Data Bars and data labels
 
 ---
 
@@ -135,7 +134,7 @@ Each **row = 1 customer**, and each **column = 1 attribute**.
 ---
 
 ## 🛠 Tools Used
-- **Microsoft Excel (Web & Desktop)**
+- **Microsoft Excel (Web)**
 - PivotTables & PivotCharts  
 - Functions used: `IF`, `COUNTIFS`, `SUMIFS`, `CONCAT`, `TEXT`  
 - Excel Dashboard Design & Layout
