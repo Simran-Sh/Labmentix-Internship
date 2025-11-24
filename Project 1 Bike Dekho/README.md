@@ -140,27 +140,6 @@ Each **row = 1 customer**, and each **column = 1 attribute**.
 - Functions used: `IF`, `COUNTIFS`, `SUMIFS`, `CONCAT`, `TEXT`  
 - Excel Dashboard Design & Layout
 
----
-
-## 📂 Suggested Folder Structure
-```
-BikeDekho_Project/
-│── Data/
-│   ├── RawData.xlsx
-│   └── CleanedData.xlsx
-│
-│── Dashboard/
-│   └── BikeDekho_Dashboard.xlsx
-│
-│── Presentation/
-│   ├── Final_PPT.pptx
-│   └── Presentation_Script.txt
-│
-└── README.md  ← (This File)
-```
-
----
-
-### ⭐ If you liked this project, kindly ⭐ star this repository  
+--- 
 
 📩 *Open to feedback & collaboration – feel free to connect!*
