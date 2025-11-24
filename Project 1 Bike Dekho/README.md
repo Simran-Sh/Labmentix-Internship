@@ -1,93 +1,166 @@
-**Project 1:** Bike🚲Dekho (Bike Sales Analysis using Excel)
+# 🚲 BikeDekho – Bike Sales Analysis using Excel
+*A Complete Excel-based Data Analytics Project*  
+**Author:** Simran Sharma | **Intern – Labmentix**  
+**Project Duration:** **17th Nov 2025 – 22nd Nov 2025**
 
-**Project Overview:**
-The Bike Dekho is a hands-on data analysis project that explores sales trends in the biking industry using Microsoft Excel. This project demonstrates how Excel can be effectively utilized for data cleaning, transformation, analysis, and visualization to drive meaningful business insights. The dataset contains customer demographics and purchase behavior — useful for understanding which customer segments are most likely to buy bikes.
+## 📌 Project Overview
 
- <u> xlxs DataSet:</u>
- **No Of Rows:** 1026
-**No. Of Columns: 13 Columns** (A to M)
+**BikeDekho** is a hands-on **data analytics project** focused on understanding **bike purchase behavior** across different customer segments using **MS Excel**.  
+The aim was to **clean raw data**, perform **Exploratory Data Analysis (EDA)**, and create an **interactive dashboard** to identify **target users most likely to buy a bike**.
 
-**🎯 Project Objectives:**
-1. To clean and organize raw bike sales data for better usability 
-2. To perform exploratory data analysis (EDA) using Excel formulas and PivotTables.
-3. To uncover key patterns in customer demographics and behaviour towards buying bikes 
-4. To create an interactive and insightful dashboard for decision-makers
+---
 
-**Step by Step Guide followed to achieve the above Objectives**
+## 🎯 Project Objectives
+✔ Clean and prepare raw data for analysis  
+✔ Perform Exploratory Data Analysis (EDA) using Excel  
+✔ Understand customer purchasing behavior  
+✔ Find which user segments are *most likely* to buy a bike  
+✔ Build an **interactive dashboard** with actionable insights
 
-[ DAY 1: 16th Nov 2025 - DATA CLEANING AND PREPROCESSING ]
+---
 
-  Step_1a: UploadED raw Data of [M1026 Column Rows] To MS Excel web
-  Step_1b: Made data readable by "Autofitting rows and columns".
-          - Headed to Top column of the worksheet
-		  - Clicked Triangle to select all rows and columns
-		  
-    Aufit Columns
-		  - Moved  between the column labels until double headed arrow appears
-		  - Then Double clicked. Excel automatically adjusted the width to fit the content
-		  
-	Aufit Rows	  
-	      - Moved  between the row labels until double headed arrow appears
-		  - Then Double clicked. Excel  automatically adjusted the height to fit the content
-		  
-**2. Identify and Remove Duplicates for Data Integrity**
+## 📂 Dataset Details
+| Description | Value |
+|-------------|-------|
+| Format | `.xlsx` (Excel Dataset) |
+| Initial Rows | 1,026 |
+| Final Valid Rows | 1,000 |
+| Columns Used | 15 |
+| Type of Data | **Cross-sectional structured tabular data** |
 
-  Step_2a: Found the column that I strongly believed should be unique overall
-  Step_2b Applied Conditional Formating: 
-                "Home" tab of ribbon -> Conditional Formatting -> Highlight cells rules -> Duplicate Values
-				<i> # Default setting i.e duplicate values highlited with red color 
-				    # Had issues accessing Toolbar, RHS top - clicked on arrow to view "Ribbon Layout". "Single Line Ribbon" was checked, so changed it to "Classic Ribbon" </.>
-  
-  Step_2c: Selected "Data" Tab from Ribbon and clicked on "Remove Duplicates"
-  Step_2d: "Remove Duplicates" Poppup appeared. 
-           - Option to Select all Columns / Checkbox to choose one or/ more columns containing duplicates to delete 
-		   - Option to tell excel that Header also exist "Data has Headers"
-		   # On Succesful Operation, Notification box appreared: 26 duplicate values found and removed. 1000 unique values remain 
-  
-** 3. Trimming extra spaces **
-      <i> #Example: Spaces Prefix or/ Postfix | Suffix in cells of your data i.e leading and trailing whitespace, and also extra spaces between words </i>
-  Step_3a: Created a Temp_new Column. **Formula **
-                                 <i>  = trim(Column ref) and then press enter </i>
-           - In Column referce, selected the column with spaces. Once the trimming is done, you can drag the effect to other columns 
-		  <i> # the recommended practice to select the 2nd row of the column</i>
-		   - Then selected the same new column, [click CTRL + Shift + Down arrow ] and clicked Copy and then pasted special - with values to original column
-  
-** 4. Eliminating empty Cells / missing values **
- Step_4a: Changed the sheet into Table
- Step_4b: From the arrow on headers, checked if any column has blank rows in-case sheet size / data is more
- Step_4c: Click on Blank, if exist and manually delete the rows from there
- 
-** 5. Spelling Check **
-Step_5a: Selected the non numneric columns togethor
-Step_5b: From the review tab in Ribbon, clicked on "spelling", if any
-          - Data has no spell erros, so it displayed: "Data is perfect"
-       <i> #In-case of errors, it will automatically list error to erase. And you can Use "find and replace" to make changes to no. of fields togethor quickly </i>
+Each **row = 1 customer**, and each **column = 1 attribute**.
 
-** 6. Standardized column formats **
-  Step_6a: Reduced the Income decimaal places by selecting currency and changed the decimal places to 0
-  Step_6b: Removed **$** and **,** from Income and converted it to number
-  
-** 7. Calculated columns for metrics like Age, Profit Margin, etc **
-  Step_7a:  Changed ** Purchased_Bike ** column  by changing Status to 1 / 0 ((Binary Flag) using If function
-   # For any calculation, you can use, If / nestedif or/Errorif. Syntax is almost same for all 
-  
-**[ DAY 2: 17th Nov 2025 - EXPLORATORY DATA ANALYSIS ]**
+---
 
-** 1. PivotTables to analyze Datatset **
-Step_1a: Created 1st Pivot table to analyse the data
-Step_1b: Understaood the use of Legend, Axis, Filter in panel
-Step_1c: Started by creating "Sales by Gender"
-Steo_1d: Drag Gender to 
-Step_1e: Created 2nd Pivot Table for "Sales Distribution by region" 
+## 📑 Data Dictionary – Key Variables
 
-**[ DAY 3: 18th Nov 2025 - EXPLORATORY DATA ANALYSIS ]**
+| Attribute | Type | Purpose |
+|-----------|------|---------|
+| `Cars_Owned` | Numeric (Discrete) | Transport preference |
+| `Daily_Miles` | Numeric (Continuous) | Commute behavior |
+| `Bike_Purchased` | Binary (0/1) | Target variable |
+| `Marital_Status` | Categorical (Nominal) | Segmentation |
+| `Education` | Categorical (Ordinal) | Awareness level |
+| `Occupation` | Categorical (Nominal) | Economic insight |
+| `Income` | Numeric | Buying capability |
 
-Step 1f: Created Pivot Table to calculate "Sales by Age group"
-Step_1g: Created Pivot Table to check "Income impact on Sales"
+---
 
-5. Applied COUNTIFS, SUMIFS, VLOOKUP, IF, and DATE functions for derived insights.
+# 🗓 Project Progress – Day Wise Breakdown
 
-Reference videos
-1. Data Cleaning and Preprocessing: https://www.youtube.com/watch?v=oT4emh72fuA&t=92s
-2. Excel Dashboard: https://www.youtube.com/watch?v=l5qkg8gzY6E
-3. 
+## 📅 **DAY 1 – 17th Nov 2025**
+### 🔧 Data Cleaning & Preprocessing
+
+**✔ Steps Performed:**
+1. **Uploaded Raw Excel Dataset** to MS Excel Web  
+2. **Auto-fitted rows & columns** for readability  
+3. **Removed Duplicates** (26 records removed → 1000 valid)  
+4. **Trimmed extra spaces** using `=TRIM()`  
+5. **Fixed blank cells** using Excel Table filters  
+6. **Standardized number formats**  
+7. **Created binary (0/1) columns** using `IF()`  
+
+---
+
+## 📅 **DAY 2 – 18th Nov 2025**
+### 📊 Exploratory Data Analysis – PivotTables  
+✔ Sales by Gender  
+✔ Sales by Region  
+✔ Sales by Education  
+✔ Bike vs Car Preference  
+
+---
+
+## 📅 **DAY 3 – 19th Nov 2025**
+### 📈 Deep Dive Analysis – Customer Behaviour  
+✔ Sales by Age Group  
+✔ Income impact on Sales  
+✔ Commute distance analysis  
+✔ Marital status impact  
+✔ Formulas: `COUNTIFS()`, `SUMIFS()`, `CONCAT()`, `TEXT()`
+
+---
+
+## 📅 **DAY 4 – 20th Nov 2025**
+### 📉 Trend Analysis & Charts  
+✔ Line Graph – Car Ownership vs Bike Purchase  
+✔ Stacked Area Chart – Commute Distance vs Age Group  
+✔ Histogram – Income Analysis
+
+---
+
+## 📅 **DAY 5 – 21st Nov 2025**
+### 📌 Dashboard Development  
+✔ KPI Summary Cards  
+✔ Bar, Pie & Column Charts  
+✔ Occupation-wise analysis  
+✔ Dashboard formatting using slicers & data labels
+
+---
+
+## 📅 **DAY 6 – 22nd Nov 2025**
+### 🧠 Final Insights
+
+✔ **North America** leads bike sales – 46%  
+✔ **Gender has no major impact**  
+✔ **Professionals buy the most bikes – 31%**  
+✔ **Medium-income buyers = 65.9% of sales**  
+✔ **0 car owners are most likely to buy bikes**  
+✔ **Short-distance commuters are top buyers (<1 mile)**  
+
+---
+
+## 🧾 Final Customer Profile
+
+| Attribute | Most Likely Segment |
+|-----------|----------------------|
+| Region | North America |
+| Education | Bachelor’s degree |
+| Income | Medium |
+| Car Ownership | 0 Cars |
+| Commute Distance | Less than 1 mile |
+| Gender | No impact |
+| Marital Status | Slightly more Single |
+
+---
+
+## 🎯 Business Recommendations
+
+✔ Target **North American professionals**  
+✔ Promote **short-distance commuting with bikes**  
+✔ Offer **EMI / subscription-based models**  
+✔ Focus on **0 car owners**  
+✔ Company tie-ups with **IT & corporate offices**
+
+---
+
+## 🛠 Tools Used
+- **Microsoft Excel (Web & Desktop)**
+- PivotTables & PivotCharts  
+- Functions used: `IF`, `COUNTIFS`, `SUMIFS`, `CONCAT`, `TEXT`  
+- Excel Dashboard Design & Layout
+
+---
+
+## 📂 Suggested Folder Structure
+```
+BikeDekho_Project/
+│── Data/
+│   ├── RawData.xlsx
+│   └── CleanedData.xlsx
+│
+│── Dashboard/
+│   └── BikeDekho_Dashboard.xlsx
+│
+│── Presentation/
+│   ├── Final_PPT.pptx
+│   └── Presentation_Script.txt
+│
+└── README.md  ← (This File)
+```
+
+---
+
+### ⭐ If you liked this project, kindly ⭐ star this repository  
+
+📩 *Open to feedback & collaboration – feel free to connect!*
