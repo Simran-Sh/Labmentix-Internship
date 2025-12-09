@@ -108,6 +108,8 @@ Each **row = 1 customer**, and each **column = 1 attribute**.
 ✔ **Short-distance commuters are top buyers (<1 mile)**  
 
 ---
+![Dashboard](Images/bike-sales-analysis-dashboard.png)
+---
 
 ## 🧾 Final Customer Profile
 
