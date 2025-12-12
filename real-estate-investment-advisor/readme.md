@@ -27,12 +27,17 @@ Predicts **future property value (5 years)** and **investment quality** to enabl
 | **Price Range** | ₹10L - ₹500L |
 | **Size Range** | 500 - 5000 SqFt |
 
+
 ### Feature Categories
-📍 Location: State, City, Locality
-🏠 Property: BHK(1-5), Size_SqFt, Property_Type(Apt/House/Villa), Age
-💰 Price: Price_Lakhs, Price_per_SqFt
-🏥 Amenities: Nearby_Schools(1-10), Hospitals(1-10), Security, Parking
-📋 Status: Furnished_Status, Availability, Owner_Type, Facing
+
+| **Type** | **Attributes** |
+|---------------|-----------|
+| **Location**📍 | State, City, Locality |
+| **Property**🏠 |BHK(1-5), Size_SqFt, Property_Type(Apt/House/Villa), Age |
+| **Price**💰 | Price_Lakhs, Price_per_SqFt |
+| **Amenities**🏥 | Nearby_Schools(1-10), Hospitals(1-10), Security, Parking|
+| **Status**📋 | Furnished_Status, Availability, Owner_Type, Facing |
+
 
 **Data Quality**: Clean (0% missing), outliers clipped using IQR method
 
@@ -42,21 +47,12 @@ Predicts **future property value (5 years)** and **investment quality** to enabl
 
 | **Category** | **Tools/Libraries** | **Purpose** |
 |--------------|-------------------|-------------|
-| **Data Processing** | Pandas, NumPy | 250K row handling, feature engineering |
-| **Machine Learning** | Scikit-learn | Preprocessing pipeline, RandomForest models |
+| **Core Programming** | [Python](https://python.org) | Core programming & ML |
+| **Data Processing** | [Pandas](https://pandas.pydata.org), [NumPy](https://numpy.org) | 250K row handling, feature engineering and Numerical Computation |
+| **Machine Learning** | [Scikit-learn](https://scikit-learn.org) | Preprocessing pipeline, RandomForest models + metrics |
 | **Modeling** | RandomForestRegressor, RandomForestClassifier | Regression + Classification |
-| **Deployment** | Streamlit, Joblib | Interactive app, model serialization |
+| **Deployment** | [Streamlit](https://streamlit.io) , [Joblib](https://joblib.readthedocs.io) | Interactive app, model serialization |
 | **Development** | Jupyter Notebook, VS Code | EDA, prototyping, app development |
-
-
-| Tool/Library | Purpose |
-|--------------|---------|
-| [Python](https://python.org) | Core programming & ML |
-| [Pandas](https://pandas.pydata.org) | 250K row data processing |
-| [NumPy](https://numpy.org) | Numerical computations |
-| [Scikit-learn](https://scikit-learn.org) | RandomForest models + metrics |
-| [Streamlit](https://streamlit.io) | Interactive web dashboard |
-| [Joblib](https://joblib.readthedocs.io) | Model serialization |
 
 ---
 
@@ -128,10 +124,6 @@ RandomForest Models → Evaluation → Streamlit Deployment
 | **Investment Classification** | Accuracy > 90% | **99.8%** ✅     |
 | **Interactive Dashboard** | User-friendly UI | **Streamlit App** ✅ |
 
-
-
-
-
 ## 📈 Model Performance
 
 **Regression (Future Price)**: RandomForestRegressor  
@@ -177,10 +169,7 @@ RandomForest Models → Evaluation → Streamlit Deployment
 ---
 
 **Built by [Simran Sharma] | Data Science and Analyst Internship Project**  
- [Streamlit app link](https://yourportfolio.com)
-
-
-
+ [Streamlit app link]([https://yourportfolio.com](https://labmentix-internship-realestateinvestmentpredict.streamlit.app/))
 
 💼 Skills Demonstrated
 ✅ Data Cleaning & EDA (Pandas, NumPy)
