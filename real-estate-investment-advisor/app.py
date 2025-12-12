@@ -1,72 +1,58 @@
 import streamlit as st
+import joblib
 import pandas as pd
 import numpy as np
-import joblib
 
-# Load models
-reg_model = joblib.load('regression_model.joblib')
-clf_model = joblib.load('classification_model.joblib')
+# Load models and features
+@st.cache_resource
+def load_models():
+    price_model = joblib.load('price_model.pkl')
+    good_model = joblib.load('good_model.pkl')
+    feature_names = joblib.load('feature_names.pkl')
+    return price_model, good_model, feature_names
 
-st.title("Real Estate Investment Advisor")
+price_model, good_model, feature_names = load_models()
 
-st.sidebar.header("Property Inputs")
+st.title("🏠 Real Estate Investment Advisor")
+st.markdown("**Predict future price + investment quality**")
 
-state = st.sidebar.selectbox("State", ["Tamil Nadu","Maharashtra","Delhi", "Karnataka"])
-city = st.sidebar.text_input("City", "Chennai")
-locality = st.sidebar.text_input("Locality", "Locality_100")
+st.header("📝 Enter Property Details")
 
-property_type = st.sidebar.selectbox("Property Type", ["Apartment","Independent House","Villa"])
-bhk = st.sidebar.slider("BHK", 1, 5, 3)
-size = st.sidebar.number_input("Size in SqFt", 500, 10000, 2000)
-price = st.sidebar.number_input("Current Price (Lakhs)", 10.0, 1000.0, 200.0)
-ppsf = price / size  # simple computation
+# Get EXACT feature order from your trained model
+print("Feature order:", feature_names)  # Check this in terminal
 
-year_built = st.sidebar.slider("Year Built", 1990, 2023, 2010)
-age = 2025 - year_built
-nearby_schools = st.sidebar.slider("Nearby Schools", 1, 10, 5)
-nearby_hospitals = st.sidebar.slider("Nearby Hospitals", 1, 10, 5)
-floor_no = st.sidebar.slider("Floor No", 0, 30, 5)
-total_floors = st.sidebar.slider("Total Floors", 1, 30, 10)
+# Create input matching EXACTLY 20 features from training
+input_data = np.zeros((1, len(feature_names)))
 
-furnished_status = st.sidebar.selectbox("Furnished Status", ["Unfurnished","Semi-furnished","Furnished"])
-pta = st.sidebar.selectbox("Public Transport Accessibility", ["Low","Medium","High"])
-parking = st.sidebar.selectbox("Parking Space", ["No","Yes"])
-security = st.sidebar.selectbox("Security", ["No","Yes"])
-facing = st.sidebar.selectbox("Facing", ["North","South","East","West"])
-owner_type = st.sidebar.selectbox("Owner Type", ["Owner","Broker","Builder"])
-availability = st.sidebar.selectbox("Availability Status", ["ReadytoMove","UnderConstruction"])
+# Map user inputs to correct feature positions
+feature_map = {name: i for i, name in enumerate(feature_names)}
 
-input_dict = {
-    'State': state,
-    'City': city,
-    'Locality': locality,
-    'Property_Type': property_type,
-    'BHK': bhk,
-    'Size_in_SqFt': size,
-    'Price_in_Lakhs': price,
-    'Price_per_SqFt': ppsf,
-    'Year_Built': year_built,
-    'Furnished_Status': furnished_status,
-    'Floor_No': floor_no,
-    'Total_Floors': total_floors,
-    'Age_of_Property': age,
-    'Nearby_Schools': nearby_schools,
-    'Nearby_Hospitals': nearby_hospitals,
-    'Public_Transport_Accessibility': pta,
-    'Parking_Space': parking,
-    'Security': security,
-    'Amenities': "Custom",  # placeholder to match columns
-    'Facing': facing,
-    'Owner_Type': owner_type,
-    'Availability_Status': availability
-}
+# User inputs (fill only the features we know positions for)
+st.number_input("BHK", key="bhk")
+if "BHK" in feature_map:
+    input_data[0, feature_map["BHK"]] = st.session_state.bhk
 
-input_df = pd.DataFrame([input_dict])
+st.number_input("Size (sqft)", key="size")
+if "Size_in_SqFt" in feature_map:
+    input_data[0, feature_map["Size_in_SqFt"]] = st.session_state.size
 
-if st.button("Predict"):
-    future_price = reg_model.predict(input_df)[0]
-    good_investment = clf_model.predict(input_df)[0]
+st.number_input("Price per SqFt", key="price_sqft")
+if "Price_per_SqFt" in feature_map:
+    input_data[0, feature_map["Price_per_SqFt"]] = st.session_state.price_sqft
 
-    st.subheader("Results")
-    st.write(f"Estimated Price in 5 Years: {future_price:.2f} Lakhs")
-    st.write("Good Investment: **Yes**" if good_investment == 1 else "Good Investment: **No**")
+# Security, Parking, Property Type
+security = st.selectbox("Security", ["Yes", "No"])
+if "Security" in feature_map:
+    input_data[0, feature_map["Security"]] = 1 if security == "Yes" else 0
+
+# PREDICT BUTTON
+if st.button("🔮 Predict Investment!"):
+    future_price = price_model.predict(input_data)[0]
+    is_good = good_model.predict(input_data)[0]
+    
+    st.success("🎯 RESULTS")
+    col1, col2 = st.columns(2)
+    with col1:
+        st.metric("Future Price (5 yrs)", f"₹{future_price:.0f} Lakhs")
+    with col2:
+        st.metric("Investment", "✅ GREAT BUY!" if is_good else "❌ Avoid")
