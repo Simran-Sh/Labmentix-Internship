@@ -1,0 +1,1963 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20253.25.1117.1115                               -->
+<workbook original-version='18.1' source-build='2025.3.0 (20253.25.1117.1115)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
+    <AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <ParameterAction />
+    <ParameterActionClearSelection />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+    <WorksheetBackgroundTransparency />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='ColorStart' datatype='integer' name='[ColorStart]' param-domain-type='any' role='measure' type='quantitative' value='3659'>
+        <calculation class='tableau' formula='3659' />
+      </column>
+    </datasource>
+    <datasource caption='ba_reviews.csv+ (Multiple Connections)' inline='true' name='federated.0blzalh01xdw4517mdnfp16sj7zd' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='ba_reviews' name='textscan.1tquiqs01oc0zm1ftc2iu0h79530'>
+            <connection class='textscan' directory='E:/LabMentixInternship/British_Airways' filename='ba_reviews.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='Countries' name='textscan.02vs39c156tvlr141l4c80mtagu9'>
+            <connection class='textscan' directory='E:/LabMentixInternship/British_Airways' filename='Countries.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation type='collection'>
+          <relation connection='textscan.02vs39c156tvlr141l4c80mtagu9' name='ba_reviews.csv' table='[ba_reviews#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+              <column datatype='string' name='header' ordinal='0' />
+              <column datatype='string' name='author' ordinal='1' />
+              <column datatype='date' name='date' ordinal='2' />
+              <column datatype='string' name='place' ordinal='3' />
+              <column datatype='string' name='content' ordinal='4' />
+              <column datatype='string' name='aircraft' ordinal='5' />
+              <column datatype='string' name='traveller_type' ordinal='6' />
+              <column datatype='string' name='seat_type' ordinal='7' />
+              <column datatype='string' name='route' ordinal='8' />
+              <column datatype='date' name='date_flown' ordinal='9' />
+              <column datatype='string' name='recommended' ordinal='10' />
+              <column datatype='string' name='trip_verified' ordinal='11' />
+              <column datatype='integer' name='rating' ordinal='12' />
+              <column datatype='integer' name='seat_comfort' ordinal='13' />
+              <column datatype='integer' name='cabin_staff_service' ordinal='14' />
+              <column datatype='integer' name='food_beverages' ordinal='15' />
+              <column datatype='integer' name='ground_service' ordinal='16' />
+              <column datatype='integer' name='value_for_money' ordinal='17' />
+              <column datatype='integer' name='entertainment' ordinal='18' />
+            </columns>
+          </relation>
+          <relation connection='textscan.02vs39c156tvlr141l4c80mtagu9' name='Countries.csv' table='[Countries#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+              <column datatype='string' name='Country' ordinal='0' />
+              <column datatype='string' name='Code' ordinal='1' />
+              <column datatype='string' name='Continent' ordinal='2' />
+              <column datatype='string' name='Region' ordinal='3' />
+            </columns>
+          </relation>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[ba_reviews.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;₹&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_IN&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Countries.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;₹&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_IN&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>header</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[header]</local-name>
+            <parent-name>[ba_reviews.csv]</parent-name>
+            <remote-alias>header</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>author</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[author]</local-name>
+            <parent-name>[ba_reviews.csv]</parent-name>
+            <remote-alias>author</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[date]</local-name>
+            <parent-name>[ba_reviews.csv]</parent-name>
+            <remote-alias>date</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>place</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[place]</local-name>
+            <parent-name>[ba_reviews.csv]</parent-name>
+            <remote-alias>place</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>content</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[content]</local-name>
+            <parent-name>[ba_reviews.csv]</parent-name>
+            <remote-alias>content</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>aircraft</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[aircraft]</local-name>
+            <parent-name>[ba_reviews.csv]</parent-name>
+            <remote-alias>aircraft</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>traveller_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[traveller_type]</local-name>
+            <parent-name>[ba_reviews.csv]</parent-name>
+            <remote-alias>traveller_type</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>seat_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[seat_type]</local-name>
+            <parent-name>[ba_reviews.csv]</parent-name>
+            <remote-alias>seat_type</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>route</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[route]</local-name>
+            <parent-name>[ba_reviews.csv]</parent-name>
+            <remote-alias>route</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date_flown</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[date_flown]</local-name>
+            <parent-name>[ba_reviews.csv]</parent-name>
+            <remote-alias>date_flown</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>recommended</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[recommended]</local-name>
+            <parent-name>[ba_reviews.csv]</parent-name>
+            <remote-alias>recommended</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trip_verified</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[trip_verified]</local-name>
+            <parent-name>[ba_reviews.csv]</parent-name>
+            <remote-alias>trip_verified</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rating</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[rating]</local-name>
+            <parent-name>[ba_reviews.csv]</parent-name>
+            <remote-alias>rating</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>seat_comfort</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[seat_comfort]</local-name>
+            <parent-name>[ba_reviews.csv]</parent-name>
+            <remote-alias>seat_comfort</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>cabin_staff_service</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[cabin_staff_service]</local-name>
+            <parent-name>[ba_reviews.csv]</parent-name>
+            <remote-alias>cabin_staff_service</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>food_beverages</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[food_beverages]</local-name>
+            <parent-name>[ba_reviews.csv]</parent-name>
+            <remote-alias>food_beverages</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ground_service</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ground_service]</local-name>
+            <parent-name>[ba_reviews.csv]</parent-name>
+            <remote-alias>ground_service</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>value_for_money</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[value_for_money]</local-name>
+            <parent-name>[ba_reviews.csv]</parent-name>
+            <remote-alias>value_for_money</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>entertainment</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[entertainment]</local-name>
+            <parent-name>[ba_reviews.csv]</parent-name>
+            <remote-alias>entertainment</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Country</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Country]</local-name>
+            <parent-name>[Countries.csv]</parent-name>
+            <remote-alias>Country</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[Countries.csv_AA27C75A45764736B4D0D9017E44DC54]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Code</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Code]</local-name>
+            <parent-name>[Countries.csv]</parent-name>
+            <remote-alias>Code</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[Countries.csv_AA27C75A45764736B4D0D9017E44DC54]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Continent</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Continent]</local-name>
+            <parent-name>[Countries.csv]</parent-name>
+            <remote-alias>Continent</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[Countries.csv_AA27C75A45764736B4D0D9017E44DC54]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Region</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Region]</local-name>
+            <parent-name>[Countries.csv]</parent-name>
+            <remote-alias>Region</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[Countries.csv_AA27C75A45764736B4D0D9017E44DC54]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Service Dimension' datatype='string' name='[Calculation_1161104386699264]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [seat_comfort]&gt;0 THEN &quot;Seat Comfort&quot;&#13;&#10;    ELSEIF  [cabin_staff_service]&gt;0 THEN &quot;Cabin Staff Service&quot;&#13;&#10;    ELSEIF [food_beverages]&gt;0 THEN &quot;Food and Beverages&quot;&#13;&#10;    ELSEIF [ground_service]&gt;0 THEN &quot;Ground Service&quot;&#13;&#10;    ELSEIF [value_for_money]&gt;0 THEN &quot;Value for Money&quot;&#13;&#10;    ELSEIF [entertainment]&gt;0 THEN &quot;Entertainment&quot;&#13;&#10;    ELSE &quot;Overall Rating&quot;&#13;&#10;END' />
+      </column>
+      <column caption='traveller_type_clean' datatype='string' name='[Calculation_2092939991789568]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='if ISNULL([traveller_type]) &#13;&#10;    THEN &apos;Unknown&apos; &#13;&#10;ELSE [traveller_type] &#13;&#10;END' />
+      </column>
+      <column caption='ISO_CODE_Clean' datatype='string' name='[Calculation_2092939997122561]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='if ISNULL([Code])&#13;&#10;THEN &quot;CRQ&quot;&#13;&#10;ELSE [Code]&#13;&#10;END' />
+      </column>
+      <column caption='valid_review' datatype='boolean' name='[Calculation_2092940008136706]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='// TRUE if rating is 1–10 and all service metrics are 1–5&#13;&#10;IF &#13;&#10;    [rating]              &gt;= 1 AND [rating]              &lt;= 10 AND&#13;&#10;    [seat_comfort]        &gt;= 1 AND [seat_comfort]        &lt;= 5  AND&#13;&#10;    [cabin_staff_service] &gt;= 1 AND [cabin_staff_service] &lt;= 5  AND&#13;&#10;    [food_beverages]      &gt;= 1 AND [food_beverages]      &lt;= 5  AND&#13;&#10;    [ground_service]      &gt;= 1 AND [ground_service]      &lt;= 5  AND&#13;&#10;    [value_for_money]     &gt;= 1 AND [value_for_money]     &lt;= 5  AND&#13;&#10;    [entertainment]       &gt;= 1 AND [entertainment]       &lt;= 5&#13;&#10;THEN &#13;&#10;    TRUE&#13;&#10;ELSE &#13;&#10;    FALSE&#13;&#10;END' />
+      </column>
+      <column caption='Review_Year' datatype='integer' name='[Calculation_2092940013621251]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='DATEPART(&apos;year&apos;,[date])' />
+      </column>
+      <column caption='Review_Month' datatype='datetime' name='[Calculation_2092940014563332]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='DATETRUNC(&apos;month&apos;,[date])' />
+      </column>
+      <column caption='Flight_Year' datatype='integer' name='[Calculation_2092940014731269]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='DATEPART(&apos;year&apos;,[date_flown])' />
+      </column>
+      <column caption='Recommended_Flag' datatype='integer' name='[Calculation_2092940017598470]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF LOWER([recommended])=&apos;yes&apos; &#13;&#10;THEN 1&#13;&#10;ELSE 0&#13;&#10;END' />
+      </column>
+      <column caption='Service_Index' datatype='real' name='[Calculation_2092940018085895]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='([seat_comfort] + [cabin_staff_service]+[food_beverages]+[ground_service]+[value_for_money]+[entertainment])/6' />
+      </column>
+      <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column datatype='date' default-format='*yyyy' name='[Review_Year (date)]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='MAKEDATE( [Calculation_2092940013621251], 1, 1 )' />
+      </column>
+      <column caption='Countries.csv' datatype='table' name='[__tableau_internal_object_id__].[Countries.csv_AA27C75A45764736B4D0D9017E44DC54]' role='measure' type='quantitative' />
+      <column caption='ba_reviews.csv' datatype='table' name='[__tableau_internal_object_id__].[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]' role='measure' type='quantitative' />
+      <column caption='Aircraft' datatype='string' name='[aircraft]' role='dimension' type='nominal' />
+      <column caption='Author' datatype='string' name='[author]' role='dimension' type='nominal' />
+      <column caption='Cabin Staff Service' datatype='integer' name='[cabin_staff_service]' role='measure' type='quantitative' />
+      <column caption='Content' datatype='string' name='[content]' role='dimension' type='nominal' />
+      <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+      <column caption='Date Flown' datatype='date' name='[date_flown]' role='dimension' type='ordinal' />
+      <column caption='Entertainment' datatype='integer' name='[entertainment]' role='measure' type='quantitative' />
+      <column caption='Food Beverages' datatype='integer' name='[food_beverages]' role='measure' type='quantitative' />
+      <column caption='Ground Service' datatype='integer' name='[ground_service]' role='measure' type='quantitative' />
+      <column caption='Header' datatype='string' name='[header]' role='dimension' type='nominal' />
+      <column caption='Place' datatype='string' name='[place]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+      <column caption='Rating' datatype='integer' name='[rating]' role='measure' type='quantitative' />
+      <column caption='Recommended' datatype='string' name='[recommended]' role='dimension' type='nominal' />
+      <column caption='Route' datatype='string' name='[route]' role='dimension' type='nominal' />
+      <column caption='Seat Comfort' datatype='integer' name='[seat_comfort]' role='measure' type='quantitative' />
+      <column caption='Seat Type' datatype='string' name='[seat_type]' role='dimension' type='nominal' />
+      <column caption='Traveller Type' datatype='string' name='[traveller_type]' role='dimension' type='nominal' />
+      <column caption='Trip Verified' datatype='string' name='[trip_verified]' role='dimension' type='nominal' />
+      <column caption='Value For Money' datatype='integer' name='[value_for_money]' role='measure' type='quantitative' />
+      <column-instance column='[traveller_type]' derivation='None' name='[none:traveller_type:nk]' pivot='key' type='nominal' />
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/aniru/AppData/Local/Temp/TableauTemp/#TableauTemp_01r6j9116hezqn173lc011a0zvuy.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='12/22/2025 10:33:56 AM' username='tableau_internal_user'>
+          <relation type='collection'>
+            <relation name='ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999' table='[Extract].[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]' type='table' />
+            <relation name='Countries.csv_AA27C75A45764736B4D0D9017E44DC54' table='[Extract].[Countries.csv_AA27C75A45764736B4D0D9017E44DC54]' type='table' />
+          </relation>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>header</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[header]</local-name>
+              <parent-name>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</parent-name>
+              <remote-alias>header</remote-alias>
+              <ordinal>0</ordinal>
+              <family>ba_reviews.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1207</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>author</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[author]</local-name>
+              <parent-name>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</parent-name>
+              <remote-alias>author</remote-alias>
+              <ordinal>1</ordinal>
+              <family>ba_reviews.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>738</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[date]</local-name>
+              <parent-name>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</parent-name>
+              <remote-alias>date</remote-alias>
+              <ordinal>2</ordinal>
+              <family>ba_reviews.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>863</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>place</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[place]</local-name>
+              <parent-name>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</parent-name>
+              <remote-alias>place</remote-alias>
+              <ordinal>3</ordinal>
+              <family>ba_reviews.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>50</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>content</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[content]</local-name>
+              <parent-name>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</parent-name>
+              <remote-alias>content</remote-alias>
+              <ordinal>4</ordinal>
+              <family>ba_reviews.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1324</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>aircraft</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[aircraft]</local-name>
+              <parent-name>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</parent-name>
+              <remote-alias>aircraft</remote-alias>
+              <ordinal>5</ordinal>
+              <family>ba_reviews.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>140</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>traveller_type</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[traveller_type]</local-name>
+              <parent-name>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</parent-name>
+              <remote-alias>traveller_type</remote-alias>
+              <ordinal>6</ordinal>
+              <family>ba_reviews.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>seat_type</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[seat_type]</local-name>
+              <parent-name>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</parent-name>
+              <remote-alias>seat_type</remote-alias>
+              <ordinal>7</ordinal>
+              <family>ba_reviews.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>route</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[route]</local-name>
+              <parent-name>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</parent-name>
+              <remote-alias>route</remote-alias>
+              <ordinal>8</ordinal>
+              <family>ba_reviews.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>733</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>date_flown</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[date_flown]</local-name>
+              <parent-name>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</parent-name>
+              <remote-alias>date_flown</remote-alias>
+              <ordinal>9</ordinal>
+              <family>ba_reviews.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>87</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>recommended</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[recommended]</local-name>
+              <parent-name>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</parent-name>
+              <remote-alias>recommended</remote-alias>
+              <ordinal>10</ordinal>
+              <family>ba_reviews.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>trip_verified</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[trip_verified]</local-name>
+              <parent-name>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</parent-name>
+              <remote-alias>trip_verified</remote-alias>
+              <ordinal>11</ordinal>
+              <family>ba_reviews.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>rating</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[rating]</local-name>
+              <parent-name>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</parent-name>
+              <remote-alias>rating</remote-alias>
+              <ordinal>12</ordinal>
+              <family>ba_reviews.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>10</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>seat_comfort</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[seat_comfort]</local-name>
+              <parent-name>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</parent-name>
+              <remote-alias>seat_comfort</remote-alias>
+              <ordinal>13</ordinal>
+              <family>ba_reviews.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>cabin_staff_service</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[cabin_staff_service]</local-name>
+              <parent-name>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</parent-name>
+              <remote-alias>cabin_staff_service</remote-alias>
+              <ordinal>14</ordinal>
+              <family>ba_reviews.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>food_beverages</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[food_beverages]</local-name>
+              <parent-name>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</parent-name>
+              <remote-alias>food_beverages</remote-alias>
+              <ordinal>15</ordinal>
+              <family>ba_reviews.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ground_service</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[ground_service]</local-name>
+              <parent-name>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</parent-name>
+              <remote-alias>ground_service</remote-alias>
+              <ordinal>16</ordinal>
+              <family>ba_reviews.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>value_for_money</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[value_for_money]</local-name>
+              <parent-name>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</parent-name>
+              <remote-alias>value_for_money</remote-alias>
+              <ordinal>17</ordinal>
+              <family>ba_reviews.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>entertainment</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[entertainment]</local-name>
+              <parent-name>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</parent-name>
+              <remote-alias>entertainment</remote-alias>
+              <ordinal>18</ordinal>
+              <family>ba_reviews.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Country</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Country]</local-name>
+              <parent-name>[Countries.csv_AA27C75A45764736B4D0D9017E44DC54]</parent-name>
+              <remote-alias>Country</remote-alias>
+              <ordinal>19</ordinal>
+              <family>Countries.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>251</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[Countries.csv_AA27C75A45764736B4D0D9017E44DC54]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Code</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Code]</local-name>
+              <parent-name>[Countries.csv_AA27C75A45764736B4D0D9017E44DC54]</parent-name>
+              <remote-alias>Code</remote-alias>
+              <ordinal>20</ordinal>
+              <family>Countries.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>250</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[Countries.csv_AA27C75A45764736B4D0D9017E44DC54]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Continent</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Continent]</local-name>
+              <parent-name>[Countries.csv_AA27C75A45764736B4D0D9017E44DC54]</parent-name>
+              <remote-alias>Continent</remote-alias>
+              <ordinal>21</ordinal>
+              <family>Countries.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[Countries.csv_AA27C75A45764736B4D0D9017E44DC54]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Region</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Region]</local-name>
+              <parent-name>[Countries.csv_AA27C75A45764736B4D0D9017E44DC54]</parent-name>
+              <remote-alias>Region</remote-alias>
+              <ordinal>22</ordinal>
+              <family>Countries.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>23</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[Countries.csv_AA27C75A45764736B4D0D9017E44DC54]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' rowDisplayCount='100' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:traveller_type:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Solo Leisure&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;Family Leisure&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Business&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Couple Leisure&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;India&quot;' />
+      </semantic-values>
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='header' />
+        <field-sort-custom-order field='author' />
+        <field-sort-custom-order field='date' />
+        <field-sort-custom-order field='place' />
+        <field-sort-custom-order field='content' />
+        <field-sort-custom-order field='aircraft' />
+        <field-sort-custom-order field='traveller_type' />
+        <field-sort-custom-order field='Calculation_2092940008136706' />
+        <field-sort-custom-order field='seat_type' />
+        <field-sort-custom-order field='route' />
+        <field-sort-custom-order field='date_flown' />
+        <field-sort-custom-order field='recommended' />
+        <field-sort-custom-order field='Calculation_2092940017598470' />
+        <field-sort-custom-order field='trip_verified' />
+        <field-sort-custom-order field='rating' />
+        <field-sort-custom-order field='seat_comfort' />
+        <field-sort-custom-order field='cabin_staff_service' />
+        <field-sort-custom-order field='food_beverages' />
+        <field-sort-custom-order field='ground_service' />
+        <field-sort-custom-order field='value_for_money' />
+        <field-sort-custom-order field='Calculation_2092940013621251' />
+        <field-sort-custom-order field='Calculation_2092940014563332' />
+        <field-sort-custom-order field='Calculation_2092940014731269' />
+        <field-sort-custom-order field='entertainment' />
+        <field-sort-custom-order field='Calculation_2092939991789568' />
+        <field-sort-custom-order field='Calculation_2092940018085895' />
+      </field-sort-info>
+      <filter class='categorical' column='[Calculation_2092940008136706]' filter-group='2'>
+        <groupfilter function='member' level='[Calculation_2092940008136706]' member='true' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+      </filter>
+      <object-graph>
+        <objects>
+          <object caption='Countries.csv' id='Countries.csv_AA27C75A45764736B4D0D9017E44DC54'>
+            <properties context=''>
+              <relation connection='textscan.02vs39c156tvlr141l4c80mtagu9' name='Countries.csv' table='[Countries#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                  <column datatype='string' name='Country' ordinal='0' />
+                  <column datatype='string' name='Code' ordinal='1' />
+                  <column datatype='string' name='Continent' ordinal='2' />
+                  <column datatype='string' name='Region' ordinal='3' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Countries.csv_AA27C75A45764736B4D0D9017E44DC54' table='[Extract].[Countries.csv_AA27C75A45764736B4D0D9017E44DC54]' type='table' />
+            </properties>
+          </object>
+          <object caption='ba_reviews.csv' id='ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999'>
+            <properties context=''>
+              <relation connection='textscan.02vs39c156tvlr141l4c80mtagu9' name='ba_reviews.csv' table='[ba_reviews#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                  <column datatype='string' name='header' ordinal='0' />
+                  <column datatype='string' name='author' ordinal='1' />
+                  <column datatype='date' name='date' ordinal='2' />
+                  <column datatype='string' name='place' ordinal='3' />
+                  <column datatype='string' name='content' ordinal='4' />
+                  <column datatype='string' name='aircraft' ordinal='5' />
+                  <column datatype='string' name='traveller_type' ordinal='6' />
+                  <column datatype='string' name='seat_type' ordinal='7' />
+                  <column datatype='string' name='route' ordinal='8' />
+                  <column datatype='date' name='date_flown' ordinal='9' />
+                  <column datatype='string' name='recommended' ordinal='10' />
+                  <column datatype='string' name='trip_verified' ordinal='11' />
+                  <column datatype='integer' name='rating' ordinal='12' />
+                  <column datatype='integer' name='seat_comfort' ordinal='13' />
+                  <column datatype='integer' name='cabin_staff_service' ordinal='14' />
+                  <column datatype='integer' name='food_beverages' ordinal='15' />
+                  <column datatype='integer' name='ground_service' ordinal='16' />
+                  <column datatype='integer' name='value_for_money' ordinal='17' />
+                  <column datatype='integer' name='entertainment' ordinal='18' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999' table='[Extract].[ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999]' type='table' />
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[place]' />
+              <expression op='[Country]' />
+            </expression>
+            <first-end-point object-id='ba_reviews.csv_4C198BB5FBF34402A8723949ABB4E999' />
+            <second-end-point object-id='Countries.csv_AA27C75A45764736B4D0D9017E44DC54' unique-key='true' />
+          </relationship>
+        </relationships>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <actions>
+    <edit-parameter-action caption='ParameterColorStart1' name='[Action1_EE8F95C37B8C4DD3A1FA0D836A2D1DAD]'>
+      <activation type='on-select' />
+      <source type='sheet' worksheet='Overall Rating KPI' />
+      <agg-type type='min' />
+      <clear-option type='do-nothing' value='i:1' />
+      <params>
+        <param name='source-field' value='[federated.0blzalh01xdw4517mdnfp16sj7zd].[sum:rating:qk]' />
+        <param name='target-parameter' value='[Parameters].[ColorStart]' />
+      </params>
+    </edit-parameter-action>
+  </actions>
+  <worksheets>
+    <worksheet name='Overall Rating KPI'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ba_reviews.csv+ (Multiple Connections)' name='federated.0blzalh01xdw4517mdnfp16sj7zd' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0blzalh01xdw4517mdnfp16sj7zd'>
+            <column caption='Recommended_Flag' datatype='integer' name='[Calculation_2092940017598470]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF LOWER([recommended])=&apos;yes&apos; &#13;&#10;THEN 1&#13;&#10;ELSE 0&#13;&#10;END' />
+            </column>
+            <column caption='Service_Index' datatype='real' name='[Calculation_2092940018085895]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='([seat_comfort] + [cabin_staff_service]+[food_beverages]+[ground_service]+[value_for_money]+[entertainment])/6' />
+            </column>
+            <column-instance column='[Calculation_2092940017598470]' derivation='Avg' name='[avg:Calculation_2092940017598470:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_2092940018085895]' derivation='Avg' name='[avg:Calculation_2092940018085895:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[rating]' derivation='Avg' name='[avg:rating:qk]' pivot='key' type='quantitative' />
+            <column caption='Cabin Staff Service' datatype='integer' name='[cabin_staff_service]' role='measure' type='quantitative' />
+            <column-instance column='[rating]' derivation='Count' name='[cnt:rating:qk]' pivot='key' type='quantitative' />
+            <column caption='Entertainment' datatype='integer' name='[entertainment]' role='measure' type='quantitative' />
+            <column caption='Food Beverages' datatype='integer' name='[food_beverages]' role='measure' type='quantitative' />
+            <column caption='Ground Service' datatype='integer' name='[ground_service]' role='measure' type='quantitative' />
+            <column caption='Rating' datatype='integer' name='[rating]' role='measure' type='quantitative' />
+            <column caption='Recommended' datatype='string' name='[recommended]' role='dimension' type='nominal' />
+            <column caption='Seat Comfort' datatype='integer' name='[seat_comfort]' role='measure' type='quantitative' />
+            <column caption='Value For Money' datatype='integer' name='[value_for_money]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0blzalh01xdw4517mdnfp16sj7zd].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0blzalh01xdw4517mdnfp16sj7zd].[avg:rating:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0blzalh01xdw4517mdnfp16sj7zd].[avg:Calculation_2092940017598470:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0blzalh01xdw4517mdnfp16sj7zd].[avg:Calculation_2092940018085895:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0blzalh01xdw4517mdnfp16sj7zd].[cnt:rating:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0blzalh01xdw4517mdnfp16sj7zd].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' value='577' />
+            <format attr='height' field='[federated.0blzalh01xdw4517mdnfp16sj7zd].[:Measure Names]' value='106' />
+            <format attr='width' field='[federated.0blzalh01xdw4517mdnfp16sj7zd].[:Measure Names]' value='365' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='display' field='[federated.0blzalh01xdw4517mdnfp16sj7zd].[:Measure Names]' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <text column='[federated.0blzalh01xdw4517mdnfp16sj7zd].[Multiple Values]' />
+              <text column='[federated.0blzalh01xdw4517mdnfp16sj7zd].[:Measure Names]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run bold='true' fontname='Tableau Bold' fontsize='10'><![CDATA[<[federated.0blzalh01xdw4517mdnfp16sj7zd].[Multiple Values]>]]></run>
+                <run>Æ&#10;</run>
+                <run bold='true' fontname='Tableau Semibold' fontsize='10'><![CDATA[<[federated.0blzalh01xdw4517mdnfp16sj7zd].[:Measure Names]>]]></run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='size' value='0.0099999997764825821' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols>[federated.0blzalh01xdw4517mdnfp16sj7zd].[:Measure Names]</cols>
+      </table>
+      <simple-id uuid='{E597A8B1-D5BF-401A-A643-F26697AE2534}' />
+    </worksheet>
+    <worksheet name='Rating Trend over Time'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontalignment='1'>&lt;Sheet Name&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ba_reviews.csv+ (Multiple Connections)' name='federated.0blzalh01xdw4517mdnfp16sj7zd' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0blzalh01xdw4517mdnfp16sj7zd'>
+            <column-instance column='[rating]' derivation='Avg' name='[avg:rating:qk]' pivot='key' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column caption='Rating' datatype='integer' name='[rating]' role='measure' type='quantitative' />
+            <column-instance column='[date]' derivation='Month-Trunc' name='[tmn:date:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[date]' derivation='Year' name='[yr:date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <trendline enable-confidence-bands='false' enable-instant-analytics='true' enabled='true' exclude-color='false' exclude-intercept='false' fit='linear' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='false' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0blzalh01xdw4517mdnfp16sj7zd].[avg:rating:qk]</rows>
+        <cols>([federated.0blzalh01xdw4517mdnfp16sj7zd].[yr:date:ok] * [federated.0blzalh01xdw4517mdnfp16sj7zd].[tmn:date:qk])</cols>
+      </table>
+      <simple-id uuid='{249E574F-3C88-4193-A999-979AADA41B1F}' />
+    </worksheet>
+    <worksheet name='Rating by Seat Type'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontalignment='1'>&lt;Sheet Name&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ba_reviews.csv+ (Multiple Connections)' name='federated.0blzalh01xdw4517mdnfp16sj7zd' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0blzalh01xdw4517mdnfp16sj7zd'>
+            <column-instance column='[rating]' derivation='Avg' name='[avg:rating:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[seat_type]' derivation='None' name='[none:seat_type:nk]' pivot='key' type='nominal' />
+            <column caption='Rating' datatype='integer' name='[rating]' role='measure' type='quantitative' />
+            <column caption='Seat Type' datatype='string' name='[seat_type]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <manual-sort column='[federated.0blzalh01xdw4517mdnfp16sj7zd].[none:seat_type:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;Economy Class&quot;</bucket>
+              <bucket>&quot;First Class&quot;</bucket>
+              <bucket>&quot;Premium Economy&quot;</bucket>
+              <bucket>&quot;Business Class&quot;</bucket>
+              <bucket>%all%</bucket>
+            </dictionary>
+          </manual-sort>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.0blzalh01xdw4517mdnfp16sj7zd].[none:seat_type:nk]' value='206' />
+            <format attr='text-format' field='[federated.0blzalh01xdw4517mdnfp16sj7zd].[avg:rating:qk]' value='n#,##0.00;-#,##0.00' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <size column='[federated.0blzalh01xdw4517mdnfp16sj7zd].[avg:rating:qk]' />
+              <text column='[federated.0blzalh01xdw4517mdnfp16sj7zd].[avg:rating:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0blzalh01xdw4517mdnfp16sj7zd].[avg:rating:qk]</rows>
+        <cols>[federated.0blzalh01xdw4517mdnfp16sj7zd].[none:seat_type:nk]</cols>
+      </table>
+      <simple-id uuid='{665E813E-B11C-462C-A41D-947E5775697B}' />
+    </worksheet>
+    <worksheet name='Rating by Traveller_Type'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontalignment='1'>&lt;Sheet Name&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ba_reviews.csv+ (Multiple Connections)' name='federated.0blzalh01xdw4517mdnfp16sj7zd' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0blzalh01xdw4517mdnfp16sj7zd'>
+            <column-instance column='[rating]' derivation='Avg' name='[avg:rating:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[traveller_type]' derivation='None' name='[none:traveller_type:nk]' pivot='key' type='nominal' />
+            <column caption='Rating' datatype='integer' name='[rating]' role='measure' type='quantitative' />
+            <column caption='Traveller Type' datatype='string' name='[traveller_type]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0blzalh01xdw4517mdnfp16sj7zd].[none:traveller_type:nk]'>
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:traveller_type:nk]' member='&quot;Business&quot;' />
+              <groupfilter function='member' level='[none:traveller_type:nk]' member='&quot;Couple Leisure&quot;' />
+              <groupfilter function='member' level='[none:traveller_type:nk]' member='&quot;Family Leisure&quot;' />
+              <groupfilter function='member' level='[none:traveller_type:nk]' member='&quot;Solo Leisure&quot;' />
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.0blzalh01xdw4517mdnfp16sj7zd].[none:traveller_type:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;Solo Leisure&quot;</bucket>
+              <bucket>&quot;Couple Leisure&quot;</bucket>
+              <bucket>&quot;Business&quot;</bucket>
+              <bucket>&quot;Family Leisure&quot;</bucket>
+              <bucket>%all%</bucket>
+            </dictionary>
+          </manual-sort>
+          <slices>
+            <column>[federated.0blzalh01xdw4517mdnfp16sj7zd].[none:traveller_type:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.0blzalh01xdw4517mdnfp16sj7zd].[none:traveller_type:nk]' value='108' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0blzalh01xdw4517mdnfp16sj7zd].[avg:rating:qk]</rows>
+        <cols>[federated.0blzalh01xdw4517mdnfp16sj7zd].[none:traveller_type:nk]</cols>
+      </table>
+      <simple-id uuid='{35F8E0A9-84FF-4B28-A353-AFB8D63277BE}' />
+    </worksheet>
+    <worksheet name='Service Heatmap'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ba_reviews.csv+ (Multiple Connections)' name='federated.0blzalh01xdw4517mdnfp16sj7zd' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0blzalh01xdw4517mdnfp16sj7zd'>
+            <column caption='Service Dimension' datatype='string' name='[Calculation_1161104386699264]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [seat_comfort]&gt;0 THEN &quot;Seat Comfort&quot;&#13;&#10;    ELSEIF  [cabin_staff_service]&gt;0 THEN &quot;Cabin Staff Service&quot;&#13;&#10;    ELSEIF [food_beverages]&gt;0 THEN &quot;Food and Beverages&quot;&#13;&#10;    ELSEIF [ground_service]&gt;0 THEN &quot;Ground Service&quot;&#13;&#10;    ELSEIF [value_for_money]&gt;0 THEN &quot;Value for Money&quot;&#13;&#10;    ELSEIF [entertainment]&gt;0 THEN &quot;Entertainment&quot;&#13;&#10;    ELSE &quot;Overall Rating&quot;&#13;&#10;END' />
+            </column>
+            <column-instance column='[rating]' derivation='Avg' name='[avg:rating:qk]' pivot='key' type='quantitative' />
+            <column caption='Cabin Staff Service' datatype='integer' name='[cabin_staff_service]' role='measure' type='quantitative' />
+            <column caption='Entertainment' datatype='integer' name='[entertainment]' role='measure' type='quantitative' />
+            <column caption='Food Beverages' datatype='integer' name='[food_beverages]' role='measure' type='quantitative' />
+            <column caption='Ground Service' datatype='integer' name='[ground_service]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_1161104386699264]' derivation='None' name='[none:Calculation_1161104386699264:nk]' pivot='key' type='nominal' />
+            <column-instance column='[seat_type]' derivation='None' name='[none:seat_type:nk]' pivot='key' type='nominal' />
+            <column caption='Rating' datatype='integer' name='[rating]' role='measure' type='quantitative' />
+            <column caption='Seat Comfort' datatype='integer' name='[seat_comfort]' role='measure' type='quantitative' />
+            <column caption='Seat Type' datatype='string' name='[seat_type]' role='dimension' type='nominal' />
+            <column caption='Value For Money' datatype='integer' name='[value_for_money]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.0blzalh01xdw4517mdnfp16sj7zd].[none:seat_type:nk]' value='164' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.0blzalh01xdw4517mdnfp16sj7zd].[avg:rating:qk]' palette='red_green_diverging_10_0' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Square' />
+            <encodings>
+              <color column='[federated.0blzalh01xdw4517mdnfp16sj7zd].[avg:rating:qk]' />
+              <text column='[federated.0blzalh01xdw4517mdnfp16sj7zd].[avg:rating:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0blzalh01xdw4517mdnfp16sj7zd].[none:Calculation_1161104386699264:nk]</rows>
+        <cols>[federated.0blzalh01xdw4517mdnfp16sj7zd].[none:seat_type:nk]</cols>
+      </table>
+      <simple-id uuid='{00AF1CE9-3953-49DD-AAB9-836268B004AD}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='BA CSAT Executive Overview'>
+      <style />
+      <size maxheight='900' maxwidth='1600' minheight='900' minwidth='1600' sizing-mode='fixed' />
+      <zones>
+        <zone h='7000' id='1' name='Overall Rating KPI' show-title='false' w='80750' x='7750' y='3000'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='1' />
+            <format attr='background-color' value='#c0c0c006' />
+          </zone-style>
+        </zone>
+        <zone h='28333' id='2' name='Rating Trend over Time' w='80875' x='9563' y='53667' />
+        <zone h='39222' id='3' name='Rating by Traveller_Type' w='37750' x='51563' y='13000' />
+        <zone h='36222' id='4' name='Rating by Seat Type' w='41313' x='8125' y='14778' />
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='950' minheight='950' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='6' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98222' id='5' param='vert' type-v2='layout-flow' w='99000' x='500' y='889'>
+                <zone fixed-size='61' h='7000' id='1' is-fixed='true' name='Overall Rating KPI' show-title='false' w='80750' x='7750' y='3000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='1' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#c0c0c006' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='39222' id='3' is-fixed='true' name='Rating by Traveller_Type' w='37750' x='51563' y='13000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='36222' id='4' is-fixed='true' name='Rating by Seat Type' w='41313' x='8125' y='14778'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='255' h='28333' id='2' is-fixed='true' name='Rating Trend over Time' w='80875' x='9563' y='53667'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{A5332620-9D48-4BCD-9E5D-AC1B2C81F639}' />
+    </dashboard>
+    <dashboard enable-sort-zone-taborder='true' name='Dashboard 2 – Service Dimension Deep Dive'>
+      <style />
+      <size maxheight='900' maxwidth='1600' minheight='900' minwidth='1600' sizing-mode='range' />
+      <zones>
+        <zone h='14444' id='9' name='Service Heatmap' w='46125' x='15875' y='11667' />
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='11' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98222' id='10' param='vert' type-v2='layout-flow' w='99000' x='500' y='889'>
+                <zone fixed-size='130' h='14444' id='9' is-fixed='true' name='Service Heatmap' w='46125' x='15875' y='11667'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{EDA1D2FD-FA0B-48D4-8B17-B623307810C8}' />
+    </dashboard>
+  </dashboards>
+  <windows saved-dpi-scale-factor='1.5' source-height='44'>
+    <window class='dashboard' name='BA CSAT Executive Overview'>
+      <viewpoints>
+        <viewpoint name='Overall Rating KPI'>
+          <zoom type='fit-width' />
+        </viewpoint>
+        <viewpoint name='Rating Trend over Time'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Rating by Seat Type'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Rating by Traveller_Type'>
+          <zoom type='fit-width' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{6119A346-165E-4CA8-A96E-71AD8FBDD584}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Dashboard 2 – Service Dimension Deep Dive'>
+      <viewpoints>
+        <viewpoint name='Service Heatmap' />
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{2274F2F9-3746-4171-9655-F8441AB8C3E0}' />
+    </window>
+    <window class='worksheet' name='Service Heatmap'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0blzalh01xdw4517mdnfp16sj7zd].[avg:rating:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0blzalh01xdw4517mdnfp16sj7zd].[avg:rating:qk]</field>
+            <field>[federated.0blzalh01xdw4517mdnfp16sj7zd].[none:Calculation_1161104386699264:nk]</field>
+            <field>[federated.0blzalh01xdw4517mdnfp16sj7zd].[none:seat_type:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{8865E8BA-F86E-46B0-9044-F3735D2AFA7B}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Overall Rating KPI'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0blzalh01xdw4517mdnfp16sj7zd].[:Measure Names]</field>
+            <field>[federated.0blzalh01xdw4517mdnfp16sj7zd].[avg:rating:qk]</field>
+          </color-one-way>
+        </highlight>
+        <default-map-tool-selection tool='2' />
+      </viewpoint>
+      <simple-id uuid='{D6CA6E7D-94B4-4284-A761-DE9C39007F7D}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Rating Trend over Time'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0blzalh01xdw4517mdnfp16sj7zd].[tmn:date:qk]</field>
+            <field>[federated.0blzalh01xdw4517mdnfp16sj7zd].[yr:date:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{CB6F5E8F-5512-446C-9345-7B0C660DC087}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Rating by Seat Type'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0blzalh01xdw4517mdnfp16sj7zd].[avg:rating:qk]' type='size' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <selection-collection>
+          <tuple-selection>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0blzalh01xdw4517mdnfp16sj7zd].[none:seat_type:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0blzalh01xdw4517mdnfp16sj7zd].[avg:rating:qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0blzalh01xdw4517mdnfp16sj7zd].[avg:rating:qk]</field>
+                  <field>[federated.0blzalh01xdw4517mdnfp16sj7zd].[none:seat_type:nk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>4.0521172638436482</value>
+                <value>&quot;Business Class&quot;</value>
+              </tuple>
+            </tuple-reference>
+          </tuple-selection>
+        </selection-collection>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0blzalh01xdw4517mdnfp16sj7zd].[none:seat_type:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{E5B948DE-134F-4CB2-BCF7-F666D4D7F88F}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Rating by Traveller_Type'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.0blzalh01xdw4517mdnfp16sj7zd].[none:traveller_type:nk]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0blzalh01xdw4517mdnfp16sj7zd].[none:traveller_type:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{339535C6-C8A8-4174-A1F2-194BA33325DC}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='BA CSAT Executive Overview' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAABYlAAAWJQFJUiTw
+      AAAgAElEQVR4nO29d3Qc152m/XQCOiA0cs6JARRzkKhAitRYpCzbClbwjIO0muDV2jOj2V3N
+      jr0ef5bl41nv6Dv2ObZGwR5ZpGxSiVSgJIqUSIokmECARAaIDDRiN7rROVXd/QMSKIigAJBE
+      Iuo5Bwfd1VX3vl1Vb9/wu/eWSgghUFBYoKhnW4CCwmyiGEBhQaMYQGFBoxhAYUGjGEBhQaOd
+      zcwPHz48m9krKMyuAbxeL7fccstsSlBY4MyqAYxGI9HR0bMpYc7T19eH3W5n8eLFAJw9exa3
+      281NN92ETqebZXVzn87OTpqamti8eTMajQYYe06VNsAcRgjBiy++yEsvvTS6zel00tDQwMGD
+      B2dP2DxBkiR+9atfYbFYeOutt4BLz6ligDnM8ePHWb16NSqVis8C9kIITpw4MVoiKFwen89H
+      YmIiW7ZsoaurC7j0nCoGmMNIkkRHRwdtbW2cOXOGiooKgsEgmzZt4tSpU7Mtb85jNBqxWq3s
+      27eP/Px89uzZM+acut1uVLM5Fujw4cNs2rRptrKfFwghaGtrIyYmBlmWaW9vR5Ik1q1bN1qn
+      Vbg8fX19tLe3s379epqamigpKRk9p/n5+YoBFBY2ShVIYUGjGOAa8+abb/Lv//7vk9p3x44d
+      PP3007zwwgtjtjc0NFBdXU1dXR2HDh2aDpmXRZIknnzySU6cODHhvqFQiCeeeIKf/OQn1NXV
+      Tbu2X//61/T09Fyy/cknnxzz/tixY/zrv/4re/bs4amnnsLtdl82zVmNA1yPnDt3jsjISPr7
+      +9m5cyd5eXnExsbyzjvvAPD0009jMpkA6Onp4aGHHuKZZ56hs7OTXbt2EQgEiIqKoq2tjW98
+      4xu43W5+/OMf4/f7uf322ykrK0Oj0bB169ZpCSI2NTWRl5fH4cOH6enpYdGiRezZs4f8/Hwu
+      XLhAYmIijz/+ODDSPlGpVGzfvp1jx46xf/9+bDYbDz/8MDt27KC4uJjY2FjOnDnDkiVL6O3t
+      xeFwEAqFsNlsPP744+zevZu+vj5SUlLYunUrp0+fxufz8eijj/Kb3/wGp9PJj370I373u9/h
+      cDi4+eab+e1vf0tkZCTbtm3j9ddfZ3BwcMx3sNvtlJSUsHHjRmpqahgaGuLZZ5/FZrNxzz33
+      8OabbxIREcFTTz2llADXEpvNRnV1NY2NjdTX1+N0OqmtrQVg06ZNpKenI8sy4XB49Jhf/OIX
+      rF27FpvNRkxMDFarlbVr13L33XcTGxtLIBBAq9XyyCOP0N3djSzLbNmyhUAgMC3f4fjx49TU
+      1FBZWcny5cvZt28f8fHxVFVV8cQTT+BwOAiHw6Pdsp2dnfzyl7/knnvuoba2lqKiIpqbm0lM
+      TOTRRx+loqKCp556ivr6eoLBII8++ijFxcXk5+fj8Xi49dZbycjI4JFHHqG9vZ2Ojg7y8/Ox
+      Wq0UFhayceNGysvLue2221i5ciX19fXo9XpiYmIoKyvj8ccfJykp6ZLvUVtbO3rubTYber0e
+      h8NBRUUFjz32GCqVClCqQNeUjo4O/vmf/5lnnnmG/v5+1qxZQ1JSEhs2bKC1tZW6ujo6OjrY
+      u3cvAFlZWTz99NNYrVaGh4dxOp3k5OSQm5vLkSNHCAQCJCUlkZubi8lkIicnh9LSUt59991p
+      +w6SJPGb3/yGBx98EJPJhM1mY9OmTdx33308++yzyLLMzp07sdlsqFQqbr/9dp566ikOHjzI
+      pk2bGB4epqCgAIPBwAsvvMC2bdv4+c9/zqZNm8jJycFgMJCWlkZOTg5ms5mEhATy8/MxmUzk
+      5eWxatUq/H4/sbGxZGRkkJaWxqpVq6isrMThcHDjjTeiUqnQ6/Vs2rSJP/7xj5jNZpxOJzab
+      DZvNRlxcHPfeey+bN28mJycHlUo1em7vuusu9u7di9VqBVB6gWaCwcFBduzYgV6v5/vf//7o
+      r8+V8Pzzz2O1Wvn+979PXFzcNVT55Xz44YecPXuWr3zlK6xatWrG8p0s9fX1OBwOAFauXIle
+      rx93v6qqKj788EOKior4+te/PrsGeO+997j55ptnK3sFhdltBBsMBmUwnMKsMqsGGB4e5siR
+      I7MpQWGBM6tVIAWF2UbpBVJY0CgGUFjQKAZQWNAoBlBY0CgGUFjQKAZQWNAoBlBY0CgGUFjQ
+      KAZQWNAoBlBY0CgGUFjQKAZQWNAoBlBY0CiT4q+SkM/J2fMjKyJk5BaSlZo44TEXmi9QVFg0
+      hUycnK7pZd3Kkgl3tfV1Unaqgvi0XDasWY5GPfXZZx0tDfQOOkbfF5SUkhQXNeV05gNKCXCV
+      ePou0DTgp7Agl7L3XqW+2zHufn/6867R19FRU5wEJHlpbOmeeL/gMH/e+xFb7txOikliYHhy
+      E+f/tOvPY94npWZSUlJCTXUVJSUlxESNP73wekApAa4BRlM0iUmp3HrjcqosA6Rrh/ngyEmC
+      AR9ZJavJjhXU1tbw/vvvs/qmTZwpL+fur36Vd157haA6Eo/TTmrhWu64aTE7//gyan0UfXYP
+      //T4Y6N5NFaVszvUz5BH4q8ffYA3Xn+PBx+4B+9gC580uLnzluWAwOfxIMlQuHQ1AG21Z/jk
+      XAv4Xdy8/ZskqsZqy4gKU1tTy/vvv8+6W7aQEBWB0RSF0QQGo4G4uDi81jbePjfA17aup/bE
+      QTQ56yh/bycGczL9fT1su/+7xKuGeH3fJ5giIbf0ZjYsL5ilqzE1FANcA84e/5jh9nNoIow8
+      +PBNGLSw+gYn1mEPZ6vK2fTXj7BocTXbtm0DwDE8PPI/CN/+y/sBwRuvv0HjmV5KbrmHdUWJ
+      7HjllTF5lNywhgfv30L1kbeo7vKjCw5h9YY588kp1mx7YGSnCDOPffsb7N31Mu6Qhu9877sc
+      r2jgWw89BJKP3XsO8FcP3zuOtrpRbeNhTMyjv/UAMuupvNDLt26M4WxkLPfdfz8iNMyf3jhC
+      pOzkm9/6FgYN7Nq1WzHAQmL1xttZFOWkYUiNQavi0L43MGaVsmJlCU3NzZNIQYUKkCUJrfbL
+      L4kAVCoVd955O28fOIwIqEkyXjwmLjmTbz/yGNbm0xw4UY3HYeXs2bMArN+wnkP73pyithFu
+      XpbFsTOVRMSmX1JvVqnVBDweqirPolXBDavXTzrd2UYxwDWidP1mOPUxu975iOxIDb2WLgbb
+      6hlyBwGICLv5YP+HLF+78bJpLFq7if986RXaExKpudA55rOW+vN88J6X1h43f3tbDBpi8LX/
+      kdxbvjO6T8jZxx92v0dWZhpd7W1s/+Z3sekGqW7vJiEqAl1UApG6S7WpfMPs/3A/K9ffRnLs
+      +PX9xRu28vIPf8gPnv41ALaeNj7Yv5+Olgtse+B76BzNvHWkmvyMBDzSPHpyjVCYFlxOhwiF
+      5YsbZFk4nS4hX/4QEfQ6hcPtF7IUEs+98OKYz2RJEm63Z8y2XTt3iOAXE5Rl4XK5hCRf/CAY
+      8AuvLzChti9DloJix84/j77f+fJO4XG7x+QjhYPC5fF+aTpzDWVS/Bwi7Hfz4f4PsXuC3Hjb
+      FvIzLl3y7zPOHD1AZHIJN5Rkz4i29/fuZvkt20lPGOnBqjpfxQ3Lb5iRvKcTxQAKCxolDqCw
+      oFEMoLCgUQwwzzl38givvvEm3tB4n0r09vQDUH78I3bu3MlHx8tnVN9cR+kGneeUnankO4/+
+      NfjtvPbmh2QWLsWs8XK+oY11G1byxz+8yt/98Ies2biFxtZX2LKhlJOnK4mLlPHJMp09fSSk
+      5BMZ6KfZMsw37rsH/QJ69p5igHnON+/7Bn/6/X+QmpmBFJWGpbsTVbwetacfu4ihuGgRaYkx
+      Fw/Q6Glrrqc7MpI0Pazbch+H9uxiaLCb/Mx0uqweilJMs/eFZhilCjSvCXPi+Cmi4lJYuXYD
+      wmMjPSMDm9WKMSaeKL0JLU4sgyNDL5JTUgBYU5hI2JQBSHz8/luk5JawqLAQtSmBeNM8CmJd
+      A+ZtN6gsy6jVin+vhHOnjlOwYgP2jkbi85cQtYDrAfPWAJIkKQ+KVrhq5o33O9ub8QdlktMy
+      MUcbZ1uOwnXCvDGA0zGMzhCFXh+JLMvIssyVFl6yLGOxWMjKygJGHvfZ1dVFdnY2TqcTWZYx
+      m83XUr7CHGXeGGDp8lUgwpyvaWDFDUsRQlxxFejQoUMMDg6Sl5cHwNGjR+nu7h59Pm5MTAxb
+      t269lvInRVdXF+fOnePuu+8GoLe3lxMnTrBmzRrOnTtHZmbmnHxA3Xxm3rQie7vbaWhoIjs3
+      /6rSsVgsBAIBQqEQsiwzMDDA8PAwsixz5MgRcnNzcblc10j15JFlmerq6tGGvRCCiooKIiMj
+      qaur4+6776avr2/GdV3vzBsDpGflsXjJUuJjDFeVTnR0NDk5ObhcLlpaWtBqtRQUFOByuSgo
+      KECj0eD1eq+R6snT1NSEJElUV1cTDAZpb28nFApRXV2Nz+e74uretaC7u3vMw737+0eiy3a7
+      nePHj8+qtqtmNsZgXwvC4fBsS5gWGhsbRUtLiwgEAqPvHQ6H2Lt3r2hpaZlxPW63W/zsZz8T
+      DodDCCFEQ0ODeOWVV4QQQuzdu1f4fD4hSdKM6/oisixfkY55UwIsFIqLi8nPzyciImL0fWxs
+      LF//+tfJz7+66t+V8N5777Fs2TLcbjcAJSUlpKenI0kSLS0tvPHGG6Mlwkxis9l46qmnRt/v
+      3r2bV155heHhYZ599tnRaaATMW8awZPhRy98TE3bwIzl99CWUh7eUjrhfh+dbWPA4ZkBRSPc
+      viqPlLhrM5xh9erVlJWV4fP5aGhoQK1Wc+7cObKyskhLS8NkMo2pHs0EQghOnjw5pkMgLi6O
+      FStWcO7cOeLj43E6nZNK67oywFzl44q2GTVmaV7yNTNAfn7+JSVPcXHx6Gd+vx+D4eraZVMl
+      GByZy1xdXc2qVauIjo7G5/PR2dlJSkoKa9asYf/+/ZNKSzGAwhWjUqlm/OYHiIyM5K677mLD
+      hg1ER0fjcrlYtWoVg4ODFBcXc+LECVauXDmptOaVAWpOHyF92W3Ez/w5vy7580c17PqoZkby
+      eusXD13zNBMSEkb/JyQkkJ09Mj9648bLr7zxReaNAYb6OkGjJSBx2UjwF99PN7IsT6r+O/O6
+      pEnpkmV5BtSMMJV2QnvfMP/5/vlpVDPC5pU588cAPX1WAl431kEraXmJ40aCVaqpLwR7NajV
+      6gkXsoLZ0KWZlK6ZHE07GT2f4QtKM9JmKs1PnnsGELJMWJIA0Gi0qD9d3bh0xSq8jn4k48Sr
+      LysoTJY5ZwBLzVH2nu3FY2lGE53ED374t0R++gNqNKfMrjiF6445FwiLTkyDgAedwczKJQWE
+      53GUXWHuM+dKAE2EEXO0AV1cFCtv2oRpzllU4XpizhnAM2ShaNVmVhUmotEqM74Uppc59/sa
+      lZSLy1LLkSNHcAdmrptOYWEyp0oAv6OXhtY+bDYbAGFJaQAoTC9zqgTQm9NIjxJsuOMebltV
+      hNV18RlXXreDpgsthGXFFArXjjlVAgAc+HAfVk0lSeZo7v/mxfEcklCTn51CbV0Ty0snflqi
+      gsJkmHMG+NZf/wN79rxNQA7hDUoYdCMS9To1lZXnSc1bogyFmID5PhRClqVpVPL5fOS5Z4C2
+      82UITQIlRVHY3AESTCMSB/oHiEtIZNg+RFZKnDIU4kuY70Mh1OqZ6f1Tq9VzzwDpRTcQkR7m
+      6MH32VywbnR7RnYeYVlGqyyGpXANmVsGCDl58eXX0epAF2Ei7vNr9qlUys2vcM2ZU71ABNyE
+      VFqCvgBRMSb8QSUOoDC9zK0SICqd//73359tFQoLiLlVAnwO+2AfXqUEUJhm5pwBhCwTCoVw
+      DQ8RDCsGUJhe5lYViMvPB5CCPlo7LOTkFxChmdluRYXrlzlXAlxuPsCQw0luTiYN9Y2zK1Dh
+      umLOlQAqjZ7ikkXcsnE9hoiL8uJiTFRV11K09AYlEjwBSiR4svnIc68EiEnJZml2LD/5n0/Q
+      OnhxkdqzZ89ijIrC7/WiVqtHo7Cf/5utSPBEf7MVCZ7ob6YjwZP9W9CRYOdAF2cbunnyp08T
+      97mVoNdvvG0WVSlcr8ytEkAOc6GlFddgF398+RWcfqUXSGF6mVsG8Ds4dLKKWFMkxStvIc6o
+      DH1QmF7mlgGMifz3f/wBGzfdgWqoiSHPzK46rLDwmHNtAIC4pDS++vV7ZluGwgJgbpUACgoz
+      jGIAhQXNvDHA0EAP5edrZ1uGwnXGnGwDjIc5MY3o4ZHHDCmR4C9HiQRPNp85OCf4cny2SvTI
+      a7UyJ/hLUOYETzYf9fypAln7e/B5PPQNDs22FIXriHlTAiSmpJOYkj7bMhSuM+ZNCaCgMB0o
+      BlBY0MwbAziHBqiursETmJkeAoWFwbwxQIeln2Wli2hrvjDbUhSuI+aNAbRaDai0gFICKFw7
+      5o0BovURVFVVkpiSPdtSFK4j5k03aGZeIZmzLULhukMlZjpOfw2QZRlJki6JZLb1OvD4gzOm
+      I9lsIjnONGabEOKSyO9M68pLi8Ok102oa8DuYcDhmRFNpXnJl2wbTxOAxx+irdc+7ZqSzab5
+      aQD4dEb/DIbyJ4uia/LMBU1z64xMgZk8cVMZyDVduqaiYTxm+0YbjxnTJGTC0vgD/zQ//elP
+      fzozKqaX0yeO4fH5iTInIAV9qNRaQn4vYaFGrQKf14NKqwMpjNsbIFKnJRj0E5LA5/eh+3T5
+      ElmWUalUtDTV0tc/hE5vxNLdjjk2lkBIQqfV4PV40OoiCAV9yKjRTOFC1lefwz7sRKc34HK6
+      0OsjCYfDyFIYSYb29jZiYmJRq9X0dLTQYelDqHX0WyzExcXiCwTR6bT4fV5UGi1yOERImtxz
+      EyrLT2K32/EEISbKSDgcJuDzgkaHCoHH7UaFTEhW4bAPYTAYQKVCfDry1u32oBJhwkKNVqPm
+      fGU5Tpcbnd6ERiUhCRVCCuENhNFpNYSCfkKyCo0anC43+sjICfUNDzuxubwkmGMBAajw+Txo
+      tDpsNht6vR6vx41WF0ko4CUogVajwuvzE6HT4fOO7KtSqaivOYfVZscQCZ39AWKMGsKSQKtW
+      4/H60EXo5k8jeCJkWSCECs9gF93OEBnmSNp6nKgkH1otmOOScLq6CQfcxEVF4jZEUdftIlJy
+      YI7UYEjKQGtMwDXYSenSpfgCgtJliwAY7BsZjFdb3UBRST59Hpni3AzOl5ezqPQGkhPjJ69T
+      ChP0+ZCFGrt9kMbaCtLzS7G0NVCwqJS+ni60kQZyMtOxuXwsKy0FwGkbxG4bpKWhhrTiZVy4
+      0MXy0mKaas+TXbCIjLRL69hfRAgZtUpFWPJy4P39LCstxOqPQPK1IYJe4qMj6QlGESl7iDEZ
+      CdnsRJcU0VFXi9fjIs6oxa5JQhNwsmrlcoQQI0O9Q24qGnrIy8mgq72NqEgVhigjXS4dkbIX
+      vVrCHBfHoN1NYU7al+oL+r1ExyRx4UIz0SJAyGjEYguyuCAL+9AQ3e0txKek4rF04/OEAAm9
+      RkIXnUBKjIbzbU5Ki3OJi41CUmkpXbwYgiNPHe2zdFHT0kVJRjxBbTRZKTHztwr0ReKTUikp
+      KUL4fSQkpxFj1GGINmOM0CFrI8jJziJSp0EboScpLhqvP0RyWgbJKamkJcVgTMzF1nwGU/zI
+      gDspHCQsC0KhEACWvkHSE2PQJWaTHq3F0tvH4pISOjq7p6QzwhjD8uXLMUfpATAnpJCXlcqS
+      xSV0dHQSF5dARsaIBh0SnkB4VEO3pYfszBQ8oQgWF6TT1W1h8ZLFtHd0TCpvU0wcRYuWUJiT
+      QWZOPmajloEBK3qDiQhDNLlZqSQkpxEZ8WlpopKRJBl/IIjeFEt2ejJJKRlE6kZuG0O0mZKS
+      EqIiVBhiEoiPiyFCbyAu2og/JJOekU2UyYBQa0lNSSLg9+Lz+fD5fOPqizYnsHTZMhzWfoQs
+      4w8EiIjLICdBj6Wnb+ScRJrIzspBi5/B/gE0Oj15xYvBY8UajKYgPZpuSy8AwUAAWZYIhWVA
+      ZsDqIDbaREZeMXo89FiD87cR/EUsHa24/SFyC4sZ7G7FaE4l6LYidNFEmyKJMpnwer2EAx4G
+      hwMUZCXhDqlRyyF0ahlJrae2uoqVq1ehBqSQn5bWDtKz81CLMO7hIYKSioTEOLo6u8nIzsXW
+      24k+JpHkBPOkdXq9XoxG4+hrIWRMpigsnW2o9TEkm42091gpyM0CIdHa0kJsYjqGCDUBjxNP
+      IExcYhJ9XR3Ep2QQcNkIq/VkTqIEuJi3jMfjx2QyjuYbY9RjMmjxhrWIsA+VSo0+QkNzayeJ
+      ySlE6DQYIzQEiUAKejGZorD292BzuEjNyCHgsiJrjUQSZDggyEqKJaTWI4f8qEWYdssgRUUF
+      uJ3DAMTGxl6ir7+ni2FPgNy8fByDPfiCgpTUJLo6OkjLGrkOQhaYokaupddlxx1UkxQTiWXA
+      QV5uBu1tHaRkZBNj0hP0uWjr7CUnLwdZVmMf6EbWmUiKiaTDMkBeXu71Y4CrRQ4H8YUEJsOX
+      11MVri8UAygsaK6bNoCCwpWgGEBhQaMYQGFBoxhAYUGjGEBhQaMYQGFBoxhAYUGjGEBhQaMY
+      QGFBc92MBlWYf/Q0lLPvVAup5giGPIK/fPhetOMso1pbW8PSpSOjYo8dO8rNN98y6Twaqspp
+      swzS1NRIcXEJN6y+iYzki+OQFAMozBoBzzD5pevYsjqPmqNvc/aClWWpao4cOYJP6Lnzzr+g
+      s/Ecr77+Frfc0seNt24lK2tkUYSOjnbsvZ3UdQyw/atfw2yKoLX+HKfON1KwqJR1K5YCsOiG
+      NSy6AYaGrGzbtu3TYzuIUAUZ9GiUKpDC7CKFw/i9bs43dpGRHE04LLFxy3bu2FjKnrc+oGjx
+      cgoKCrjtttsw6uDYsU8AOLBvD9GZJdx351r2HzhBT9MZTl5w8NCDD1BdcfJL83xtx/McP99G
+      fk6GUgIozC7lZYf4cFcNj/79j8g0R9LV1MOJ6uOkJCXgdQ+h0WrRaNTodGMn+RtiEynITAEc
+      aMJh6qtb+IuvP4RKBfrIiC/NMy6jgPvv/gtAaQQrzDLrb72DX/z8/+Pjt1/D7gly+OQ57rv3
+      G6xZvnh0H+ky83k/T2FxBh8dOIHTPkBHz8CX7hsRcXHI+3UzJ1hhfqKPjiMxIY4VpUVUVjWx
+      tjSXDw8dp9/uoaggm7TUVMLuIU6eqSA9fwmRWkhJSQUu/gctRaUr0Pn7qWvpRcghVi5ffkle
+      F/eH1JQUQJkPoHCd4Ojt4P3DJ5DlEIa4TO7dvnlSxykGUFjQKG0AhQWNYgCFBc11bQCXyzXb
+      EhTmONe1ARQUJkIxgMKCRjGAwoJGMYDCgkYxwARcLkxyNeGTa9M4F1elYTyuVafBdISWroW2
+      8XQpg+HGoam+BvfwMBkFhbR19KLTainMSqKito3Nt26goeY8aPXkF5cQMYM/IQM9XdiGXQiN
+      gYBzACksUbx8Na0VRzEvupVoyYbNbsfqCHDT+pUzpivkc9HU2oXT6yMzIQqHJ4jWEENMhESP
+      1cOqRRmcrG5HCImbN6ydMV0w0bVcp5QA45Gbm4OsNeIaGGLZ6hXodRCbkEJmSgIAfQP9BLwu
+      fIGre2jFVElOz0SHhNkci94UzeqluXQNelmyqBCAhOQ09GpYcsOyGdWlM0STlmQmKioWl19m
+      2bJlyAEXGdn5mE16NJEG5ICXcea6TDsTXUvFAJcgqK5rYvXqlSSaIxi0ui4ZjWiOT2ZxUQZ9
+      /cMzqqylvoaE7GLSk+MJBkNYbcPExX7+GWUyDp+M2TCzBXvQPUj3UIhliwtRyyECoSCSfPGB
+      HR6rhdSiFZj1OmbuSWkw8bVUKwa4FEFcTBRNTY3ok/NQufrIyi3EYe1HRsbSN0hRXjZt/X6K
+      cxNmVFlsfAID3e30Wx3kZaXjVseSapRpswYIWLsIh0MUFJfMqCYAldZApMrPhdYOShYvoq25
+      hZLFJfR0tSMjE9CnYggOEJeWyZeP1L/WTHwt5+xgOK/XiyRd+lDsU6dOsX79+kmn8dla/HMJ
+      RdfUmS5tc9YAl2MqJ8LlchEdHT3NiqaOomvqTJe2eVcFOnXq1GxLULiOmBcGCPvdPP/cc1RX
+      V1Pf3DalYwPBMGcaLNOkTGG+My8MgBAkJSUTDAa5885tUzpUq1HzxpF6ZHle1fQUZoh5YQCt
+      IZrFeakcO17GwUOfTOlYjUZNSVYCNW1fPlFa4frA7Quy70TTpPefFwYAaLVYKV1URKRaYuI1
+      AsayeWUeH1dMreqkcG1weQMzmt8f3qvkzU8acPsmF3GYN0MhNm7ciC5Cy7naC1N2bW6aGeuw
+      F18ghCFSN/EB84zzzX1Yh31sWZ03ZrssC7oHnWSnXPpI0snSb/cwYPewLH/ix7B+kfoOK8+/
+      c5YIrZqEWCOri9Mv0XgtOV7TRYRWw1dvKuZMvYXNqy6fV3uvg+yU2PlRAvQ0nGL32wd44bnn
+      abdYL79fVwcd3T3jfrZ2UTonay99qPXOD6to7h66ZlqvlEDwyoZVOD0B/nSwmk/Od9BiGfs9
+      3j3RxE/+cIjWHvuk02tpaWFwcJBgcOQX9Lm3ynl5/3k6+hyXP8YyxDtlY6sdgWCYl/ef5yff
+      vZV/+7s7eOyuVTRbhnjv5IUpfLvJYx328vaxBh7ZtoKbSrOouNB72X0HHR6efO4gFRd654cB
+      ei1doNHR2z9IlPFyscQQQ8NeMlJTRrdUVFTw0UcfcfbsWXJiZfZ8cISWlhZcLhehUIiTdd30
+      2928uK8CXyA0M19mHFosQzz53EF++p+Hp3SzAvzH2+V85yvL+cF963j+nbN4/SPfo6qln9q2
+      QX75t1v5/b7KL11c6vPfXavV0tfXR19fHy+9+i4OSwNrUgL8ascBzp2voqurC7v9osaKpl5e
+      3FdJ/5CbF9+tGN3+549q+MraAuKiDQDExxh47K6VlNV00T3onNJ3nAhZFvxuz7X63N0AAA6k
+      SURBVBn+5u7VREZoSYkzYXf5CYYuDaQCvPTBef7rN9ZyqLJ9fgTCZFn63AVUodONU3OTA9TV
+      teANhFi56gaQZVwuF1FRUQCEw2H+bedhti5PpzA7hbNVDew+UMm371yOJiqVw6druH/TYkxG
+      IwkJCTidTvR6PdHR0Wi1l+YXCsucrOsmyhDByqLUSz5v73Pw2uF61i/O4JYbslF9biRYb+/F
+      X6e+4TB/2n+W/7J9ORIq3iprxaQTbN9QSEpiHIFAgHB4pHQwm804HCO/xEIIzrU7qG/u4pub
+      FqPVamnodnDifAubVmTzQUUPD28qRKsSfFTRRlx8EqtyoxBCoFKpSE1Npb+/n4aOQY7W9vIP
+      D2xk2GFn8eKRFdk8/hD/588n+B8PbSDKEEF5g4UPyqrZvjobl9tNXHwC73xUhjek5rt334TJ
+      EMGf9lcSFR3F0oJMjlQ2808P33pJ0LLX5uaFdyt54oH1RBkmPzCipqYGtUZL/3CA0oJ0hoaG
+      UKlUJCUl8f7JCwQCQe5cX4DZbGZ4eJj3TrdRmJnELSsLUH3u5Jc39lLV0s+j21fw8x3H5ocB
+      Ps/lhkKE/W6aWrvwhyRWLR9ZSvuL0cPGTivHqrv43p3L+fHvD/H3968nNX7EIPtPN9Nrc/PQ
+      5kWEw2H6+/txOp0YjUb8fj92ux1ZliktLeVCezevftLM5jUlDLrCmPQRfOuOiyMwm7ps/OG9
+      Sn78nVv5uKKNmtYB/vGBDaPtj87OToQQHD7XgcUR5jtbS1CrVOh0OvR6Pb2Ddn79+im+s30N
+      JZlxCCEIhiSO1fbS0WtDH6FFoGLIHeKfHliHSqVCo9GgVqs5WtXB28eb+Pljt4956v2vdpVx
+      14YiluQmASO/mr/fV4FWo+a7d65ArVaNOV/PvX2WdYvTWVmUNppGeWMPB860otWq0WrUrCxM
+      ZdPK3NHPJUnifGMX+061cM+6NDxuF16vl5KSEhoaGoiMjCQuLg5nOIL3TjTxo+9tITLyosYv
+      4zNtL75bQXKcia9tLEGWZY5VdVJ1oZsHN5UQCAQwm810d3czaHey84NKnnr8Hurq6pBlGbXO
+      wI6PGnj4lhzUKhj0R8wfA0iShCzLeL1eYmJjJzW0drzw+RO/3c+qojTiYwxs31A05rN/e+UY
+      d64vZHnhpb/oAJIsc7C8hf3Hq3jotiI0IkR6ejq/fvldtBoNX7u1FJ3RzO/eKON/fnszWekp
+      6PV6Ki/0svvjWv7+/vWkJUSP6jp6voP1SzKJ0GkuycvlDfB/d51g88pc7G4/x6s7uXNdIfnp
+      cQRCEqGwRElWApERk+vHsLt8/OyPnxBrGrnhPP4Qty7P4e6bii85X10Dw+z8sJr/9Vc3Tyrt
+      yRIMBvH7/QSDQQ6UneeDslrysjMpTDGQEa/HZDJRVFSEx+MhOjqa6Oho1Gr1GG2yLHj+nbOk
+      J0Zz49JM/u+uMn726OZxz8OPX/yYn3z3NiJ0GmRZ8Js3TnHbipxRU0uSPH8M8N6eXfhFBHV1
+      tWTkL+WRb9074THjGeDVQ7VUtfTzs0c3o1aPtZHbF+TnL3/C7avy2LQid8yNWdc+yCsHqinN
+      T+a+WxdfctO++O5IO6LNMshjdy5GJQWJioqit7cXt9tNv91DfEo2KVGCtLQ0UlJSmIhgSOLl
+      /efJTIrhjjX5aDRX12STJBnp04DguKb79HzZXT5UKhXmKP1V5TcZWnvsHChvRQX81dbFqFQq
+      urq6cLlcuFwuSkpKqK+vZ+3ataPXUpYFz75VTk3rAP/j4ZvIT48bN+03jtSRnRJLQXo8v3nj
+      FGsXpXPXjcVj9pk3Bqg4dpDq1h6CKiN5aWa2bt064THjGUCSZIJh6bLdob5AiA9Ot3C0qoON
+      pVkUZSbwblkTSWYj929aMtqoG499J5pYsyiDlDjTuJ/Lsszw8DCSJJGYmDih/plmNgfDvfT+
+      OYx6HQ9sXjq6bcjpQ6tRE2OKvESbLAu6rU6yky/fxdve6+DZt84A8F/uWkVx1qXD1+eNAZqq
+      y6lq6mbF2vUUZqdNfABXd0FlWVBW00VDp5VtGwrJSIy5onSuta7pZLZ1/W7vGbKTY7mpNIvX
+      DtdhGXTyg/vWkWQ2XbG2d8qa2Lwy97IN7nljAK9ziKNHj3K2qYd/+cfvj7OHoLmxHo0hlrzs
+      DGD2L+jlUHSNjywL/v/XTjDk9HPPrYtYU5I+7drmTSTYYXew5ubbyS/uH/fzoKMbyZhOYLgb
+      mYz5EeBQGINareKfHrxpZvOc0dyuEKulhSNlp3n+mV9i8YxfYIWDASKNBjQq1ZTHCiksXOaF
+      ARACrU6HRqUeNygFYEzMwdZaRQDN/CnWFGadedMGABCyROOFVhaVFE28M7Nfp70ciq6ps+Da
+      AJebFJ+RnjrpVcK8Xi8w0v34WUDl86+v9v2VHjuRrqt5fTXHT0XXdOm/3OvpOmdz1gDXagWA
+      kejh2As3Fabr2KvVNdl8psq11AVzV9tn6cyPNsBVcjUnbDqPvVY3xrVKZzrSm6vaPktnQRjg
+      6hCEw+MPq51LyFKYuTrt+bPRrHONcDisGGA8autqEUIghIwQIdpau5Bl8em2uXGXBYc6aOpz
+      I4RAlmXsXa0MBWSEGCneZ5PPzh8IZFnQ1to6qmk2tY1e1091tLW2KgYYD1kImpuaGeqopc8D
+      IKipraG1oQ7/XAkyCIEQbpqb+qivqwVA8g3R0Gqhvr5+VqV9dv4gRH3dyEyx2toafHYLbb0z
+      u57qF3X1NTXjgdFzphjgcwghkMN+UOmQhUwg8NmEbhVROjVOWYNBMxtrHI9FCIHHG8CgH9Hp
+      /1Sn1pSI5LagjZy9rkwhBEKSkYVMOOgn/GmBWZCRyJFzneRljD9yc6Z0oZKRJBl/YGTK55zt
+      BZoNRNhPQ3MnixYVMzzQgyegJ9WgJTYzFf9QF0KdNNsSAfA4h7CFjRTGJdDpaMYUm01MXBRo
+      ZSyShpy8rFnT1t7cSG5BMRrJR4fFTkF+FmoVaFQSaUnmWfvFHejtIiktk5Q4E80tLeQVFKGP
+      0M6vQNhUuZbBk7ma1hiEhMsTIDrqyrqQpzMQ5nG7MJiiUKuurARdcIGwucZcjZCOQaW54pt/
+      ujFFzc3zp7QBFBY0igE+jywRCI6/PEo46GNoeKoPagtz9OMDDLn8V65JSAQus2SLFPIzZJ/6
+      EiPHDx9g0OG9ck2fIxQMcLkVVzxOx+gyLZPFa+/jo09OctWRl0ley+veABWH9vCrF15DBB18
+      72/+ARB0d7QRDMsEAn4G+voIBAPs3bOHgLWVPQdPYh0a6aoTskRbWzuyLLHjpf9kwDYM/j7+
+      5V+e4vn/+A+6bB4cQ4M4XB4aznzMmcYehBymvb2TkYZVGKdfTXy0fgJNYOlsJxC6qCkYDLBn
+      7x78zh7eev8TBmyfLkwlZNo/1fTKyy/Ra7VfVlPb+eOUVbUjC5n29o7RQJnDGwRXD7t37+aF
+      l1+95Jy9/MIzvH+4nI7zx/nfz7yALAVpa+9CAH6vm74BK9a28xwoq6Lyk3eo77bj/nQJxKDf
+      Q5eln1AwwO9ffA6XL0jDiff5P7/9A8//fgchIejv6cYfDPPW3r043R6CPjeW3kEAnL0tmLMW
+      cemM5em5ltd9G0DIEjq1mqqKSkpWrKDqkw/oxoztRCXC3UdaYjT+2KU0NjawcUUh7W2t7Ops
+      5L/93WN88NZrmNMyqayqZ2BoGKM+EpBYvOomvrUlj91l50hVD3K4opktSxOwWI0M1B3FnBhL
+      XYed7beN/7iiL2pqPH2QBqcBx9EzqHyDpCVGE4pbRmNjAzeuXUJnWyu7elr44X/9Gw6++waG
+      pAzOnKum32ofXfpkPE1fXZ1BkzfIcEc5MfFxVF3o42t3jCwpk5RVSEl2Fx2uS281lTEFyd1P
+      U0hHcYqRt157lbTMZOraBmipOECEysS6m4tobPKyIg0sjQ2UH+3ke3/5IK/u+jPJZiMtGcvx
+      BWUitGpkWWbL9nsRLQeobbbQdr6MnuEAgaEeiktXUHH8I/RqWH3XX/Fl0/Cn41pe9yUAwOpF
+      qeyr6CUzVofH4ycvLw/kMFHmZNYuX4IxJo7ExASiTZEULiolNdkMgD8kk5eXR1iSyczKJDt9
+      pBt0eGiQDw8epTDDSJ3FS3yMkfS0dJKSEnEOD+H0aclMvTiH2G0fxOZ009nZPa4mr9tHdn4e
+      anFRU2RULMmJCcRGGcgrXkLGp0819AWlUU3pmZnkZqZeXlN6OglJSXiHHdjdMlnpFyeFt1V9
+      wtkOL2tvWEx3Zyc+t51+28XqVJQOfGLk9zEkC/Ly8gh4PWTmFFKUnUZyejpxCUno1LBi7Y1E
+      GUaMJDQ68jKSUOtjyczKHF1EoLe7jbONfQR7q9Ak5KJTQ3paGklJiQz29xKbkk6E6mJdqqej
+      E88XNE3HtURcxzidTuEcGhDuQEB0d/WK3r4+IUtBcfrEcWEb9oiBgQER8jrFkNMr2i/Ui77+
+      fjEw5BQDAwNCCCGCPpc4frxMeAJh0dfXO5KoFBAV5eWivbtfCCGL6oozorm9W8jhgDhTXin8
+      Ppc4deqUsA17hRA+8e6+g8LtsIohp0d0d1uEEEJYOlrGaBJyWJSfLBMDdtcYTZ2tjaKnv18M
+      WB2jmsIBjyg7fly4fKEJNQk5JCpOVwh/wCNOnzopBu1uIYQQ7+57VwwNWER5ebmoaWgRlu5u
+      4XM7REvHiL7evj7hc9nFoN316eshcbzspAiEZTEwMCCGBgZESMiiquK06B8YEN6QGNU31G8R
+      J89WCVmIUX1uh1WUl5cL27BHhHwucab8nOjtHxBuh1VUN7SIoQGLOHWmQgTCsuitPSbKW+2i
+      t6tbeNwOMTDknNZrqcQBphWJytNnyF2ykrioiyugzbau82dPklm0nISYsUu8zLYugIDbTmVd
+      O2vXrRzTDpgubYoBZgFF19RRDHAFhMPhy84hnk0UXVNnurRd1wZQUJiIBdELpKBwORQDKCxo
+      FAMoLGgUAygsaBQDKCxoFAMoLGj+H+jBETW2Msn+AAAAAElFTkSuQmCC
+    </thumbnail>
+    <thumbnail height='192' name='Dashboard 2 – Service Dimension Deep Dive' width='192'>
+      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
+      TkSuQmCC
+    </thumbnail>
+    <thumbnail height='69' name='Service Heatmap' width='192'>
+      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
+      RU5ErkJggg==
+    </thumbnail>
+  </thumbnails>
+</workbook>
