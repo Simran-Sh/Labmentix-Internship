@@ -52,31 +52,31 @@ The data was migrated to SQL Server (SSMS) to perform high-performance querying.
 ## Booking Success Rate
 Tracking the volume of rides that successfully reached the destination
 
-![Booking Success Rate](Ola_Ride/Images/Successful_BookingRecords.png)
+![Booking Success Rate](Images/Successful_BookingRecords.png)
 
 ---
 ## Vehicle Performance (Distance)
 Identifying which vehicle types are preferred for long-distance vs. short-distance travel.
-![Average_Distance_VehicleType](Ola_Ride/Images/Average_Distance_VehicleType.png)
+![Average_Distance_VehicleType](Images/Average_Distance_VehicleType.png)
 
 ---
 ## Customer Cancellation Trends
 Analyzing the primary reasons why customers abandon bookings
-![Total_cancelled_rides_by_customer1](Ola_Ride/Images/Total_cancelled_rides_by_customer1.png)
+![Total_cancelled_rides_by_customer1](Images/Total_cancelled_rides_by_customer1.png)
 
 ---
 # Loyalty Analysis (Top 5 Customers)
 Identifying the power users with the highest ride frequency
-![top5customers_withmaxRides](Ola_Ride/Images/top5customers_withmaxRides.png)
+![top5customers_withmaxRides](Images/top5customers_withmaxRides.png)
 
 ---
 ## Driver Behavior & Operational Issues
 Quantifying cancellations due to personal/car-related issues by drivers
-![CancelledbyDriver_Car_Personalissue_Count](Ola_Ride/Images/CancelledbyDriver_Car_Personalissue_Count.png)
+![CancelledbyDriver_Car_Personalissue_Count](Images/CancelledbyDriver_Car_Personalissue_Count.png)
 
 ---
 # Rating Benchmarks for PrimeSedan
 Evaluating the quality of service for premium segments like Prime Sedan.
-![primeSedan_Min_max_DriverRating](Ola_Ride/Images/primeSedan_Min_max_DriverRating)
+![primeSedan_Min_max_DriverRating](Images/primeSedan_Min_max_DriverRating.png)
 
 ---
