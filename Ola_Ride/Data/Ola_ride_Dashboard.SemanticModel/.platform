@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Ola_ride_Dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a5649d95-9221-4b79-ae16-32b4263c1089"
+  }
+}

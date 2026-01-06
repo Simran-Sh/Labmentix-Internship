@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Ola_ride_Dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "bdc4a8bc-fee2-498e-a559-54d6dd33c759"
+  }
+}

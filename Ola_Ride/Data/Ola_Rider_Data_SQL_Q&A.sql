@@ -148,3 +148,82 @@ SELECT
 FROM Ola_Dataset_2024
 WHERE Vehicle_Type = 'Prime Sedan';
 GO
+/*
+----------------------------------------
+| Question_7: RECORDS WITH UPI PAYMENT |
+-----------------------------------------
+*/
+SELECT 
+count(*), Payment_Method
+FROM Ola_Dataset_2024
+GROUP BY Payment_Method;
+GO
+
+SELECT 
+* 
+FROM Ola_Dataset_2024
+WHERE Payment_Method ='UPI';
+GO
+
+/*
+------------------------------------------------------
+| Question_8: AVERAGE CUSTOMER RATING BY VEHICLE TYPE |
+------------------------------------------------------
+*/
+SELECT
+    Vehicle_Type,
+    COUNT(*) AS [Rides_COUNT_per_Vehicle],
+    AVG(Customer_Rating) AS [AVG_Customer_RATING],
+    MAX(Customer_Rating) AS [MAX_Customer_RATING],
+    MIN(Customer_Rating) AS [MIN_Customer_RATING]
+FROM Ola_Dataset_2024
+GROUP BY Vehicle_Type;
+GO
+
+SELECT
+    Vehicle_Type,
+    AVG(Customer_Rating) AS [AVG_Customer_RATING]
+FROM Ola_Dataset_2024
+GROUP BY Vehicle_Type;
+GO
+/*
+------------------------------------------------------
+| Question_9:  TOTAL BOOKING VALUE OF SUCCESFULL RIDES |
+------------------------------------------------------
+*/
+SELECT 
+    SUM(Booking_Value) AS [Total Succcessful booking Value]
+FROM dbo.Ola_Dataset_2024
+WHERE Booking_Status='Success';
+GO
+
+SELECT 
+    Booking_Status,
+    Booking_Value
+FROM dbo.Ola_Dataset_2024
+WHERE Booking_Status='Success';
+GO
+/*
+----------------------------------------------------
+| Question_10: LIST OF INCOMPLETE RIDES WITH REASON |
+----------------------------------------------------
+*/
+
+SELECT 
+    COUNT(*) AS [INCOMPLETE_RIDES_COUNT],
+    Incomplete_Rides_Reason
+FROM dbo.Ola_Dataset_2024
+WHERE Incomplete_Rides = 1
+GROUP BY Incomplete_Rides_Reason;
+GO
+
+SELECT 
+    Customer_ID,
+    Booking_ID,
+    Customer_Rating,
+    Driver_Ratings,
+    Booking_Value,
+    Incomplete_Rides_Reason
+FROM dbo.Ola_Dataset_2024
+WHERE Incomplete_Rides = 1;
+GO
