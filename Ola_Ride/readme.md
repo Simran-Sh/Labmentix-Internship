@@ -1,16 +1,24 @@
 # 🚖 Ola Ride-Sharing Data Analytics (July 2024)
+This project involves a comprehensive data engineering and analysis of a ride-hailing dataset i.e extract actionable insights
 
 ## 📌 Project Overview
-This project involves a comprehensive analysis of a ride-sharing dataset. The primary goal is to extract actionable insights regarding revenue performance, cancellation patterns, and operational bottlenecks.
+The goal of this project is to analyze Ola ride data for July 2024 to identify operational bottlenecks, revenue leakages, customer satisfaction trends and cancellation patterns,
+This project features a robust SQL backend, a Power BI strategic framework, and a live Streamlit web application by transitioning from 
+Raw Data ➡️ Strategic Preprocessing ➡️ SQL Analysis ➡️ Dynamic Visualization
 
-The project transitions from 
-Raw Data ➡️ Strategic Preprocessing ➡️ SQL Analysis ➡️ Dynamic Visualization.
+## 🛠️ Tech Stack
+- **Database:** Microsoft SQL Server (T-SQL)
+- **Dashboarding:** Power BI (Conceptual Design)
+- **Web App:** Streamlit (Python)
+- **Visualization:** Plotly & Pandas
+- **Connection:** SQLAlchemy / PyODBC
 
+## Dataset Details
 **Format:** CSV (Comma Separated Values) <br>
 **Rows:** ~103,000 records <br>
-**Columns:** 21 features <br>
+**Columns:** 15 features <br>
 **Date Range:** July 2024 <br>
-**Domain:** Transportation / Gig Econom
+**Domain:** Transportation / Gig Economy
 
 ## 📝 Column Descriptors
 
@@ -44,6 +52,11 @@ In ride-sharing analytics, Nulls are often **"Conditional"** rather than "Missin
   * **Incomplete Rides:** We identified `39,057` records where ratings are missing, matching the count of non-success records exactly.
 
 ---
+
+## 🚀 Getting Started
+
+1. SQL Setup
+- Used SQL Server Management Studio (SSMS) and wrote the scipt to create database and then imported flat table
 
 # 🔍 SQL Insights & Business Questions
 The data was migrated to SQL Server (SSMS) to perform high-performance querying. 
@@ -141,11 +154,6 @@ The "Quality" Gap: By comparing Customer vs. Driver ratings in a line chart, we 
 Visualizing Satisfaction: The dashboard uses table rows to pinpoint exactly which vehicle categories are underperforming in ratings, enabling targeted driver training
 Across all vehicle types, both driver and customer ratings are remarkably consistent, hovering around the 4.0 mark
 
-# Slide 3: Vehicle Performance & Revenue
-Most 4-wheelers and e-bikes maintain an average ride distance of 15 units, while Auto-rickshaws average significantly lower at 6 units
-Across all vehicle types, both driver and customer ratings are remarkably consistent, hovering around the 4.0 mark
-Our most frequent customer (CID954071) completed 5 rides, indicating a highly fragmented but active user base
-
 # Slide 6: Driver & Customer Experience (Ratings)
 The "Quality" Gap: By comparing Customer vs. Driver ratings in a line chart, we can see if specific vehicle types (like Prime Plus) provide a better experience than others. But to surprise, across all vehicle types, both driver and customer ratings are remarkably consistent, hovering around the 4.0 mark
 To Visualizing Satisfaction, individually, I used table rows to pinpoint exactly which vehicle type  underperformed in ratings, and during which day of the month and for which route? This will help to take the required action to get better ratings
@@ -155,8 +163,16 @@ Based on the combined SQL and Power BI Analysis:
   - Reduce Revenue Leakage: With $21M lost to cancellations, we need to implement a "Driver Arrival" incentive to fix the #1 customer complaint (drivers not moving).
   - Optimize Auto-Rickshaws: Since Autos have a much shorter average distance, they should be marketed for "last-mile connectivity" rather than long-range trips
   - UPI is a dominant force with over 19M+ transactions. However, Cash remains the highest single payment method (14.17M), showing a need to support both digital and traditional users
-  - Address Vehicle Breakdowns: 6.5k rides failed due to breakdowns which was 35% camcellations by Driver. A mandatory vehicle health check-in the app could reduce this friction.
+  - Address Vehicle Breakdowns: 6.5k rides failed due to breakdowns which was 35% camcellations by Driver. A mandatory vehicle health check-in the app could reduce this friction
+
+  ## Streamlit Configuration
+  - Created a .streamlit/secrets.toml file to connect to my local SQL instance
+  - Installed streamlit pandas plotly sqlalchemy pyodbc using Terminal and finally run  "run app.py"
 
 # Final Insights
 Our SQL analysis confirms that while we are hitting a high volume of 103K bookings, our biggest growth opportunity lies in the $21 Million 'Lost Revenue' gap. 
 By using the Power BI filters for pickup and drop-off locations more deeply, we can identify exactly which zones have the highest 'Driver Not Found' rates and deploy more fleet resources to those specific areas."
+
+## 👤 Author
+Simran Sharma
+Data Analyst & SQL Developer at Labmentix
