@@ -130,33 +130,35 @@ We recorded 3,926 incomplete rides, with "Vehicle Breakdown" and "Customer Deman
 ## Power BI Visualisations for real-time decision making
 
 # Slide 1: Dashboard Overview 
-To have a quick look at the Financial Health, we can say that "OLA" The generated $35 Million in revenue, but we also observed a $21 Million revenue loss due to cancellations and "Driver Not Found" errors
-Besides, if we see the bookings, which was upside 100k for the july 2024 month alone around Bangalore and nearby regions and has not being steady rather inceasing and decreasing every other day, and week.
+- To have a quick look at the Financial Health, we can say that "OLA" The generated $35 Million in revenue, but we also observed a $21 Million revenue loss due to cancellations and "Driver Not Found" errors
+- Besides, if we see the bookings, which was upside 100k for the july 2024 month alone around Bangalore and nearby regions and has not being steady rather inceasing and decreasing every other day, and week.
 
 # Slide 2: Vehicle types effect on Revenue
-Most 4-wheelers and bike / e-bikes maintain an average ride distance of 24 - 25 kms, while Auto-rickshaws average significantly lower at 10 kms and total distance travalled being 92K kms 
-The boooking cancellations has been steady over and under 3.5 Million for each vehicle type including auto
+- Most 4-wheelers and bike / e-bikes maintain an average ride distance of 24 - 25 kms, while Auto-rickshaws average significantly lower at 10 kms and total distance travalled being 92K kms 
+- The boooking cancellations has been steady over and under 3.5 Million for each vehicle type including auto
 
 # Slide 3: Revenue & Payment Analysis
-The revenue earned within the 1st 3 days of the month July was over 3.5 Million with 10k+ bookings and ~2 Million Revenue loss due to cancellations and issues. the mejorly of the revenue flow is through Cash making 1.9 million, followed by 1.44M for UPI and rest 0.2 Million apporx through cards
-The top customers with max distance travelled for around 48kms 
+- The revenue earned within the 1st 3 days of the month July was over 3.5 Million with 10k+ bookings and ~2 Million Revenue loss due to cancellations and issues. the mejorly of the revenue flow is through Cash making 1.9 million, followed by 1.44M for UPI and rest 0.2 Million apporx through cards
+- The top customers with max distance travelled for around 48kms 
 
 # Slide 4: Booking Cancellations
-From over 103K bookings, only 64k were succesful, approximaltel, givng the cancellation rate 28.8%. Out of the number of bookings mentioned, 10.12k were incomplete because of "Driver Not found" which means cost issue in that area or/ resource needs to aligned more 
-
-If we check from cancelled rodes by Driver overall, the majorly has been hot by Personal and car issues  follwing by 30% approx for custmer related issues. Aother uissues that can be avoided with change in the user intergace i.e mentioning the no. of customers permitted, since 15.3% of rides were cancellled because of outnumber for a single vehicle accomodation for ride
-
-Next, for the cancellations by customer, thge majorly has been locked by Most frequently canceled givng reason "Driver was not moving towards the pickup location". This needs to be seen closely to understand if it was because of driver already dropping off other customer or/ because of his break but still accepted the ride?
-The Unexpected occasionbs has also been of "Change of plans" which can not be predicted. but still it affected our score by 20% downwards.  Then also a scenarior where the Driver asked the Customer to canvel has also been on  hogher edge making ot 25.4% i.e 2670 rides cancellations by customer
+- From over 103K bookings, only 64k were succesful, approximaltel, givng the cancellation rate 28.8%. 
+- Out of the number of bookings mentioned, 10.12k were incomplete because of "Driver Not found" which means cost issue in that area or/ resource needs to aligned more 
+- If we check from cancelled rodes by Driver overall, the majorly has been hot by Personal and car issues  follwing by 30% approx for custmer related issues. 
+- Aother uissues that can be avoided with change in the user intergace i.e mentioning the no. of customers permitted, since 15.3% of rides were cancellled because of outnumber for a single vehicle accomodation for ride
+- Next, for the cancellations by customer, thge majorly has been locked by Most frequently canceled givng reason "Driver was not moving towards the pickup location". 
+  - This needs to be seen closely to understand if it was because of driver already dropping off other customer or/ because of his break but still accepted the ride?
+- The Unexpected occasionbs has also been of "Change of plans" which can not be predicted. but still it affected our score by 20% downwards.  Then also a scenarior where the Driver asked the Customer to canvel has also been on  hogher edge making ot 25.4% i.e 2670 rides cancellations by customer
 
 # Slide 5: Driver & Customer Experience evaluated through Ratings
-The "Quality" Gap: By comparing Customer vs. Driver ratings in a line chart, we can see if specific vehicle types (like Prime Plus) provide a better experience than others.
-Visualizing Satisfaction: The dashboard uses table rows to pinpoint exactly which vehicle categories are underperforming in ratings, enabling targeted driver training
-Across all vehicle types, both driver and customer ratings are remarkably consistent, hovering around the 4.0 mark
+- The "Quality" Gap: By comparing Customer vs. Driver ratings in a line chart, we can see if specific vehicle types (like Prime Plus) provide a better experience than others
+- Visualizing Satisfaction: The dashboard uses table rows to pinpoint exactly which vehicle categories are underperforming in ratings, enabling targeted driver training
+- Across all vehicle types, both driver and customer ratings are remarkably consistent, hovering around the 4.0 mark
 
 # Slide 6: Driver & Customer Experience (Ratings)
-The "Quality" Gap: By comparing Customer vs. Driver ratings in a line chart, we can see if specific vehicle types (like Prime Plus) provide a better experience than others. But to surprise, across all vehicle types, both driver and customer ratings are remarkably consistent, hovering around the 4.0 mark
-To Visualizing Satisfaction, individually, I used table rows to pinpoint exactly which vehicle type  underperformed in ratings, and during which day of the month and for which route? This will help to take the required action to get better ratings
+- The "Quality" Gap: By comparing Customer vs. Driver ratings in a line chart, we can see if specific vehicle types (like Prime Plus) provide a better experience than others
+- But to surprise, across all vehicle types, both driver and customer ratings are remarkably consistent, hovering around the 4.0 mark
+- To Visualizing Satisfaction, individually, I used table rows to pinpoint exactly which vehicle type  underperformed in ratings, and during which day of the month and for which route? This will help to take the required action to get better ratings
 
 ## Strategic Recommendations
 Based on the combined SQL and Power BI Analysis:
@@ -168,6 +170,23 @@ Based on the combined SQL and Power BI Analysis:
   ## Streamlit Configuration
   - Created a .streamlit/secrets.toml file to connect to my local SQL instance
   - Installed streamlit pandas plotly sqlalchemy pyodbc using Terminal and finally run  "run app.py"
+
+ StreamLit Webapp with 2 Modes
+
+ PowerBI Mode and SQL Bank Mode
+  ![streamlit_Webapp](Images/streamlit_Webapp.png)
+
+---
+## Screenshots from the View
+
+## Mode_1: PowerBI Mode
+![streamlit_revenue_tab](Images/streamlit_revenue_tab.png)
+![streamlit_vehicleType_tab](Images/streamlit_vehicleType_tab.png)
+![streamlit_ratings_tab](Images/streamlit_ratings_tab.png)
+![streamlit_ratings_tab](Images/streamlit_ratings_tab.png)
+
+## Mode_2: SQL Bank Mode
+![streamlit_SQL_incompleteRideWitgReason](Images/streamlit_SQL_incompleteRideWitgReason.png)
 
 # Final Insights
 Our SQL analysis confirms that while we are hitting a high volume of 103K bookings, our biggest growth opportunity lies in the $21 Million 'Lost Revenue' gap. 
