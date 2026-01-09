@@ -66,7 +66,7 @@ Question_1: List of records with succcessful bookings
 | Question_2: Average Vehicle Distance by Vehicle type |
 --------------------------------------------------------
 */
-  SELECT Vehicle_Type, AVG(Ride_Distance) AS [Average Distance]
+  SELECT Vehicle_Type, AVG(Ride_Distance) AS [Average_Distance]
   FROM DBO.Ola_Dataset_2024
   GROUP BY Vehicle_Type;
 
@@ -192,7 +192,7 @@ GO
 ------------------------------------------------------
 */
 SELECT 
-    SUM(Booking_Value) AS [Total Succcessful booking Value]
+    SUM(Booking_Value) AS [Total_Succcessful_booking_Value]
 FROM dbo.Ola_Dataset_2024
 WHERE Booking_Status='Success';
 GO
