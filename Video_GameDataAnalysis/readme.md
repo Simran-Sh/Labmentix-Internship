@@ -1,0 +1,170 @@
+# 🎮 Video Game Sales & Engagement Analysis
+
+## Problem Statement 
+The project aims to analyze and visualize video game sales and engagement data to uncover trends in game popularity, user behavior, and platform performance. By merging sales and engagement data, we seek to offer insights into how game features, platforms, and genres influence sales, wishlists, and ratings. SQL will be used to structure and store the data, while Power BI dashboards will be developed to guide decision-making for game developers, marketers, and publishers.
+
+---
+
+## 🧭 Project Roadmap (High Level)
+### We’ll follow this exact flow:
+    - Understand datasets ✅ (you already started)
+    - Clean engagement data (df_games)
+    - Clean sales data (df_gameSales)
+    - Standardize & prepare keys (Title vs Name)
+    - Design Star Schema (SQL)
+    - Load data into SQL
+    - Analytical SQL queries
+    - Power BI dashboards
+    - Business insights & storytelling
+
+---
+
+## Architecture
+Raw Data (CSV)
+   ↓
+Python (Cleaning / Staging)
+   ↓
+SQL (Star Schema Warehouse)
+   ↓
+Power BI (Dashboards & Insights)
+
+---
+
+## Dataset
+games_clean.csv
+game_sales_clean.csv
+
+# Phase 1: Data Cleaning & Understanding (Python / Pandas)
+Before SQL, modeling, or dashboards, data must be clean, consistent, and reliable
+
+## DATA UNDERSTANDING
+| Aspect               | Meaning                                  |
+| -------------------- | ---------------------------------------- |
+| `object` dtype       | Data stored as **text**, even if numeric |
+| Missing values       | Will break joins, aggregations, visuals  |
+| Two datasets         | Need **common key** to merge             |
+| Different row counts | Many-to-one relationship                 |
+
+### Best Practice Guide
+
+| Situation                   | Action                |
+| --------------------------- | --------------------- |
+| Few nulls, non-critical     | Keep as NaN           |
+| Many nulls, dimension field | Fill with `'Unknown'` |
+| Fact metric nulls           | Investigate or drop   |
+| Time fields                 | Never fake dates      |
+
+---
+
+# df_games (Engagement) ➡️ Game-level behavior
+
+It has derived metrics (wishlist, plays, backlogs)
+
+| Aspect   | Meaning                           |
+| -------- | --------------------------------- |
+| One row  | One game                          |
+| Metrics  | Plays, Wishlist, Backlogs, Rating |
+| Platform | ❌ Not platform-specific           |
+| Time     | Release date                      |
+
+### Problem 1: Useless Column
+It’s an index column accidentally saved from CSV
+
+### Problem 2: Dates stored as text
+Convert "df_games['Release Date']" to datetime
+
+pd.to_datetime() → converts string → datetime
+errors='coerce' → invalid dates become NaT (safe null)
+
+### Problem 3: Data Type Fixation
+    - Convert df_games['Team'].string → actual Python list
+    - Convert df_games['Genres'] (multi-valued categorical field) 
+    - Convert df_games['Reviews'] to string 
+
+### Problem 4: Missing values
+| Column  | Action                 | Why                 |
+| ------- | ---------------------- | ------------------- |
+| Team    | Fill `"Unknown"`       | Dimension attribute |
+| Summary | Fill `"Not Available"` | Descriptive         |
+| Rating  | Keep NaN               | Don't fake ratings  |
+| Genres  |                        | multi-valued column |
+
+### Problem 5: Convert "K currency unit" values to Numbers
+
+| Raw    | Correct |
+| ------ | ------- |
+| `3.9K` | `3900`  |
+| `17K`  | `17000` |
+| `679`  | `679`   |
+
+***Solution***
+| Code                 | Meaning                   |
+| -------------------- | ------------------------- |
+| `isinstance(x, str)` | Checks if value is text   |
+| `endswith('K')`      | Detects thousands format  |
+| `replace('K','')`    | Removes K                 |
+| `* 1000`             | Converts to actual number |
+| `float(x)`           | Converts clean numbers    |
+
+---
+
+# df_gameSales (Sales) ➡️ Game–Platform–Year sales
+| Aspect   | Meaning                  |
+| -------- | ------------------------ |
+| One row  | One game on one platform |
+| Metrics  | NA, EU, JP, Global sales |
+| Platform | ✅ Yes                    |
+| Time     | Year                     |
+
+### Problem 1: Year Missing values
+| Option    | Why not                |
+| --------- | ---------------------- |
+| Mean      | Skewed by recent years |
+| Mode      | Not stable             |
+| Drop rows | Lose valid sales       |
+| Median    |robust against outliers |
+
+### Problem 2: Year is float (Conversion to integer)
+
+After data cleaning & fixation - Null fields representing a story
+| Game Type | Pattern                                |
+| --------- | -------------------------------------- |
+| Upcoming  | NaT release, NaN rating, high wishlist |
+| New       | Release date present, rating NaN       |
+| Mature    | Full engagement + ratings              |
+
+### Problem 3: Missing Publisher values
+Publisher is a dimension attribute. and dropping publisher would make us lose real sales numbers. Hence, "fillna('Unknown')"
+
+## JOIN RISK: Game names AND Game Title not standardized
+Case differences Leading/trailing spaces. Hence fix them before joining
+
+## Sales metrics validation
+    - Check for negatives or nulls
+    - Derived metric consistency check i.e if Global_Sales = sum of regions
+
+Validated that Global_Sales equals the sum of regional sales with minor rounding differences (≤0.02 million units), confirming data integrity and hence no catche aggregation errors
+
+## CLEANED DATASET'S
+✔ Applied real-world ETL decision logic
+✔ Converted string-lists into real structures
+✔ Avoided premature normalization
+✔ Cleaned a multi-platform sales fact table
+✔ Preserved data (many-to-many relationships) while fixing quality issues
+✔ Prepared dataset for star schema modeling
+
+---
+
+## Tables we create in SQL - Actual star schema
+### DIMENSIONS
+dim_game
+dim_platform
+dim_genre
+dim_publisher
+dim_time
+
+### FACTS
+fact_game_engagement
+fact_game_sales
+
+---
