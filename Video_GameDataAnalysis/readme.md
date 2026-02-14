@@ -7,9 +7,9 @@ The project aims to analyze and visualize video game sales and engagement data t
 
 ## 🧭 Project Roadmap (High Level)
 ### We’ll follow this exact flow:
-    - Understand datasets ✅ (you already started)
-    - Clean engagement data (df_games)
-    - Clean sales data (df_gameSales)
+    - Understand datasets 
+    - Clean "engagement data" (df_games)
+    - Clean "sales data" (df_gameSales)
     - Standardize & prepare keys (Title vs Name)
     - Design Star Schema (SQL)
     - Load data into SQL
@@ -20,22 +20,46 @@ The project aims to analyze and visualize video game sales and engagement data t
 ---
 
 ## Architecture
-Raw Data (CSV)
-   ↓
-Python (Cleaning / Staging)
-   ↓
-SQL (Star Schema Warehouse)
-   ↓
-Power BI (Dashboards & Insights)
+**Phase 1** → Clean CSV raw datasets & Merge (Python – Controlled & Safe)
+**Phase 2** → Star Schema (SQL – Warehouse Layer)
+**Phase 3** → SQL Views (Business Questions Layer)
+**Phase 4** → Power BI (3 Dashboard Story Navigator)
 
 ---
 
 ## Dataset
-games_clean.csv
-game_sales_clean.csv
+
+| Dataset    | Represents        |Dataset  name        |
+| ---------- | ----------------- |---------------------|
+| Engagement | Consumer Interest |games_clean.csv      |
+| Sales      | Market Revenue    |game_sales_clean.csv |
+
+We have two sides of the same market. Together, they measure: Demand vs Monetization
+
+---
 
 # Phase 1: Data Cleaning & Understanding (Python / Pandas)
 Before SQL, modeling, or dashboards, data must be clean, consistent, and reliable
+
+# df_games (Engagement) ➡️ Game-level behavior
+This dataset measures interest and player behavior i.e “What do players WANT and EXPERIENCE?”
+
+    - Title: Its the Game name (Unique game identity) which can be Joined with sales data
+    - Rating: User review score (numeric). It measures user satisfaction (quality perception)
+    - Genres: Game categories (can be multiple). It connects type of game → demand behavior
+    - Plays: Number of playthroughs.
+    - Backlogs: Number of users who own it (or plan to), but haven’t played yet. i.e Deferred interest.
+    - Wishlist: Number of users who wishlisted the game and can also show Pre-release demand / interest.
+    - Release Date, Platform, Team (Developer).
+
+## It has derived metrics (wishlist, plays, backlogs)
+
+| Aspect   | Meaning                           |
+| -------- | --------------------------------- |
+| One row  | One game                          |
+| Metrics  | Plays, Wishlist, Backlogs, Rating |
+| Platform | ❌ Not platform-specific          |
+| Time     | Release date                      |
 
 ## DATA UNDERSTANDING
 | Aspect               | Meaning                                  |
@@ -55,17 +79,6 @@ Before SQL, modeling, or dashboards, data must be clean, consistent, and reliabl
 | Time fields                 | Never fake dates      |
 
 ---
-
-# df_games (Engagement) ➡️ Game-level behavior
-
-It has derived metrics (wishlist, plays, backlogs)
-
-| Aspect   | Meaning                           |
-| -------- | --------------------------------- |
-| One row  | One game                          |
-| Metrics  | Plays, Wishlist, Backlogs, Rating |
-| Platform | ❌ Not platform-specific           |
-| Time     | Release date                      |
 
 ### Problem 1: Useless Column
 It’s an index column accidentally saved from CSV
@@ -109,6 +122,14 @@ errors='coerce' → invalid dates become NaT (safe null)
 ---
 
 # df_gameSales (Sales) ➡️ Game–Platform–Year sales
+    - Name: Game name i.e identity
+    - Platform: Console or device.
+    - Year: Year of release.
+    - Genre: Single Value and Main category.
+    - Publisher: Game publisher i.e Business side of gaming.
+    - NA_Sales, EU_Sales, JP_Sales, Other_Sales, Global_Sales: Sales by region.
+
+
 | Aspect   | Meaning                  |
 | -------- | ------------------------ |
 | One row  | One game on one platform |
@@ -139,6 +160,10 @@ Publisher is a dimension attribute. and dropping publisher would make us lose re
 ## JOIN RISK: Game names AND Game Title not standardized
 Case differences Leading/trailing spaces. Hence fix them before joining
 
+Common games = 469
+df_games total ≈ 1512
+df_gameSales total unique games ≈ much larger (16k rows, many duplicates per platform)
+
 ## Sales metrics validation
     - Check for negatives or nulls
     - Derived metric consistency check i.e if Global_Sales = sum of regions
@@ -155,6 +180,12 @@ Validated that Global_Sales equals the sum of regional sales with minor rounding
 
 ---
 
+# Phase 2: BUILDING THE STAR SCHEMA
+    - Create dim_game
+    - Attach surrogate keys
+    - Prepare fact tables
+    - Define SQL schema
+
 ## Tables we create in SQL - Actual star schema
 ### DIMENSIONS
 dim_game
@@ -168,3 +199,12 @@ fact_game_engagement
 fact_game_sales
 
 ---
+
+# Power BI 
+Used a Hybrid Approach:
+| Dashboard            | Data Scope             |
+| -------------------- | ---------------------- |
+| Engagement Dashboard | All 1512 games         |
+| Sales Dashboard      | All 16k rows           |
+| Combined Dashboard   | Only 469 matched games |
+
