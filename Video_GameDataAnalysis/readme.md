@@ -6,33 +6,54 @@ The project aims to analyze and visualize video game sales and engagement data t
 ---
 
 ## 🧭 Project Roadmap (High Level)
-### We’ll follow this exact flow:
-    - Understand datasets 
-    - Clean "engagement data" (df_games)
-    - Clean "sales data" (df_gameSales)
-    - Standardize & prepare keys (Title vs Name)
-    - Design Star Schema (SQL)
-    - Load data into SQL
-    - Analytical SQL queries
-    - Power BI dashboards
-    - Business insights & storytelling
+### Follow a structured workflow:
+    Understand datasets
+    Clean Engagement data 
+    Clean Sales data
+    Standardize naming & create join keys
+    Validate data integrity
+    Design Star Schema in SQL
+    Load data into warehouse
+    Build SQL analytical layer
+    Develop Power BI dashboards
+    Extract business insights
+
+🏗️ Architecture
 
 ---
 
 ## Architecture
-**Phase 1** → Clean CSV raw datasets & Merge (Python – Controlled & Safe)
-**Phase 2** → Star Schema (SQL – Warehouse Layer)
-**Phase 3** → SQL Views (Business Questions Layer)
-**Phase 4** → Power BI (3 Dashboard Story Navigator)
+**Phase 1 → Python (ETL & Data Cleaning)** 
+    → Clean CSV raw datasets & Merge (Python – Controlled & Safe)
+    →  Controlled cleaning, validation, transformation
+
+**Phase 2 → SQL (Data Warehouse Layer)**
+    → Star schema modeling with surrogate keys & referential integrity 
+
+**Phase 3 → Sanity Check** 
+    → Reusable queries answering key business questions
+
+**Phase 4 → Power BI (Analytics Layer)** 
+    → Power BI Dashboard Story Navigator
+        Engagement
+        Sales
 
 ---
+| Tool       | Purpose                      |
+| ---------- | ---------------------------- |
+| Python     | ETL & Data Cleaning          |
+| SQL Server | Star Schema & Data Warehouse |
+| Power BI   | Interactive Dashboards       |
+| Pandas     | Data Transformation          |
+| DAX        | Analytical Measures          |
+
 
 ## Dataset
 
-| Dataset    | Represents        |Dataset  name        |
-| ---------- | ----------------- |---------------------|
-| Engagement | Consumer Interest |games_clean.csv      |
-| Sales      | Market Revenue    |game_sales_clean.csv |
+| Dataset    | Represents        |
+| ---------- | ----------------- |
+| Engagement | Consumer Interest |
+| Sales      | Market Revenue    |
 
 We have two sides of the same market. Together, they measure: Demand vs Monetization
 
@@ -180,13 +201,13 @@ Validated that Global_Sales equals the sum of regional sales with minor rounding
 
 ---
 
-# Phase 2: BUILDING THE STAR SCHEMA
+# Phase 2: Star Schema Design (SQL Warehouse)
     - Create dim_game
     - Attach surrogate keys
     - Prepare fact tables
     - Define SQL schema
 
-## Databasw modes for restricted access
+## Database - SQL access control modes:
 | Mode            | Meaning             |
 | --------------- | ------------------- |
 | MULTI_USER      | Default, many users |
@@ -196,19 +217,32 @@ Validated that Global_Sales equals the sum of regional sales with minor rounding
 
 ## Tables we create in SQL - Actual star schema
 ### DIMENSIONS
-dim_game
-dim_platform
-dim_genre
-dim_publisher
-dim_time
+    dim_game
+    dim_platform
+    dim_genre (Genre excluded due to multi-value normalization complexity; future improvement would use bridge table.)
+    dim_publisher
+    dim_time
 
 ### FACTS
-fact_game_engagement
-fact_game_sales
+    fact_game_engagement
+    fact_game_sales
+
+**Created integer surrogate keys for:**
+Game | Platform | Publisher | Time
+
+**This avoids:**
+String-based joins
+Performance issues
+Duplicate risks
 
 ---
 
-# Power BI 
+# Phase 3: Star Schema Design (Sanity Check)
+Check for the integrity of all the Tables and Data Inserted 
+
+---
+
+# Phase 4: Power BI Dashboards
 Used a Hybrid Approach:
 | Dashboard            | Data Scope             |
 | -------------------- | ---------------------- |
@@ -216,3 +250,29 @@ Used a Hybrid Approach:
 | Sales Dashboard      | All 16k rows           |
 | Combined Dashboard   | Only 469 matched games |
 
+## Dashboard 1 – Engagement & Ratings
+Focus: Player Demand
+
+**Highlights:**
+    Average rating: 3.65
+    6M total plays
+    701K wishlist
+    Rating distribution between 3–4 dominant
+    High wishlist strongly correlates with backlog
+
+## Dashboard 2 – Sales Performance
+Focus: Revenue & Market Trends
+
+**Highlits**:
+    North America dominates sales
+    2000–2010 was peak era
+    PS2 & Xbox 360 were strongest platforms
+    Legacy franchises dominate top sellers
+
+
+# 📈 Key Business Insights
+    NA is largest revenue region.
+    Console golden era peaked around 2008–2009.
+    Wishlist is strong early revenue indicator.
+    Rating alone does not guarantee sales success.
+    Sales are highly concentrated among few franchises.

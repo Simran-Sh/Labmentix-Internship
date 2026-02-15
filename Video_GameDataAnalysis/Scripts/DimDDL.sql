@@ -49,9 +49,9 @@ CREATE TABLE Dim_Publisher (
 );
 
 /*
------------------
+------------
 | DimTime  |
------------------
+------------
 */
 CREATE TABLE Dim_Time (
     Year INT PRIMARY KEY

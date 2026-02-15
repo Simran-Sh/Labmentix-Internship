@@ -1,4 +1,4 @@
-
+Use VideoGame;
 /*
 =====================
 | CREATE FACT TABLES|
@@ -9,7 +9,9 @@
 ----------------------------------------------
 */
 
-CREATE TABLE FactGameEngagement (
+
+
+CREATE TABLE Fact_GameEngagement (
 	GameId INT PRIMARY KEY,
 	Rating FLOAT NULL,
 	TimesListed FLOAT,
@@ -18,7 +20,7 @@ CREATE TABLE FactGameEngagement (
     Playing FLOAT,
     Backlogs FLOAT,
     Wishlist FLOAT,
-    FOREIGN KEY (GameId) REFERENCES DimGame (GameId)
+    FOREIGN KEY (GameId) REFERENCES dbo.Dim_Game(GameId)
 );
 GO
 
@@ -27,7 +29,7 @@ GO
 | FactGameSales Grain: One row per Game per Platform per Year |
 ---------------------------------------------------------------
 */
-CREATE TABLE FactGameSales (
+CREATE TABLE Fact_GameSales (
     GameId INT NOT NULL,
     PlatformId INT NOT NULL,
     Year INT NOT NULL,
@@ -40,9 +42,9 @@ CREATE TABLE FactGameSales (
     
     PRIMARY KEY (GameId, PlatformId, Year),
 
-    FOREIGN KEY (GameId) REFERENCES DimGame(GameId),
-    FOREIGN KEY (PlatformId) REFERENCES DimPlatform(PlatformId),
-    FOREIGN KEY (PublisherId) REFERENCES DimPublisher(PublisherId),
-    FOREIGN KEY (Year) REFERENCES DimTime(Year)
+    FOREIGN KEY (GameId) REFERENCES Dim_Game(GameId),
+    FOREIGN KEY (PlatformId) REFERENCES Dim_Platform(PlatformId),
+    FOREIGN KEY (PublisherId) REFERENCES Dim_Publisher(PublisherId),
+    FOREIGN KEY (Year) REFERENCES Dim_Time(Year)
 );
 
