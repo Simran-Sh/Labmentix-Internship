@@ -186,6 +186,14 @@ Validated that Global_Sales equals the sum of regional sales with minor rounding
     - Prepare fact tables
     - Define SQL schema
 
+## Databasw modes for restricted access
+| Mode            | Meaning             |
+| --------------- | ------------------- |
+| MULTI_USER      | Default, many users |
+| SINGLE_USER     | Only one user       |
+| RESTRICTED_USER | Only admins         |
+
+
 ## Tables we create in SQL - Actual star schema
 ### DIMENSIONS
 dim_game
