@@ -26,6 +26,7 @@ END
 CREATE DATABASE iTunesMusic;
 GO
 
+Use iTunesMusic;
 
 -- The "ETLLog table" is used to track, monitor, and audit your ETL executions
 
@@ -34,9 +35,22 @@ CREATE TABLE ETLLog
     LogId INT IDENTITY PRIMARY KEY,
     ProcedureName VARCHAR(100),
     StepName VARCHAR(100),
-    LoadDate DATETIME DEFAULT GETDATE(),
+    LoadDate DATETIME DEFAULT GETDATE(), -- Gets current date and time
     Status VARCHAR(50),
     Message VARCHAR(1000),
-    RowCount INT NULL
+    [RowCount] INT NULL -- -- Wrapped in brackets to avoid reserved word error
 );
 
+ALTER TABLE ETLLog
+DROP COLUMN [RowCount];
+
+ALTER TABLE ETLLog
+ADD RowsAffected INT NULL;
+
+SELECT * FROM ETLLog;
+
+SELECT COLUMN_NAME
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME = 'ETLLog';
+
+sp_help ETLLog;

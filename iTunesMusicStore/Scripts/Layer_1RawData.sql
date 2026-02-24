@@ -76,19 +76,21 @@ DEALLOCATE FileCursor;
 */
 
 /*
------------------------------------------------------------
-OPTION 2 - BULK UPLOAD after 11 TABLE CREATION EXPLICITLY |
------------------------------------------------------------
+
+Purpose: Store source as-is in Raw Layer. 
+-------------------------------------------------------------------------------
+OPTION 2 - BULK UPLOAD after 11 TABLE CREATION EXPLICITLY | Raw = data archive |
+-------------------------------------------------------------------------------
 */
 CREATE TABLE RawArtist -- Table 1
 (
     ArtistId INT PRIMARY KEY,
     Name VARCHAR(200)
-);
+);GO
 
-
-BULK INSERT RawArist
-FROM 'E:\LabMentixInternship\iTunesMusicStore\DataSets\invoice.csv'
+-- Bulk Upload data to Table 1
+BULK INSERT RawArtist
+FROM 'E:\LabMentixInternship\iTunesMusicStore\DataSets\artist.csv'
 WITH
 (
     FIRSTROW = 2,              -- Skip header
@@ -104,44 +106,127 @@ CREATE TABLE RawAlbum -- Table 2
 (
     AlbumId int PRIMARY KEY,
     Title VARCHAR(300),
-    ArtistId int CONSTRAINT FK_RawArtist FOREIGN KEY(ArtistId) REFERENCES RawArtist(AristId)
+    ArtistId INT
+    CONSTRAINT FK_RawArtist FOREIGN KEY(ArtistId) REFERENCES RawArtist(ArtistId)
 );
 
--- Add Foreign Key separately
+/* Add Foreign Key separately
 
 ALTER TABLE RawAlbum
 ADD CONSTRAINT FK_Album_Artist
 FOREIGN KEY (ArtistId)
 REFERENCES DimArtist(ArtistId);
-
+*/
 
 BULK INSERT RawAlbum
 FROM 'E:\LabMentixInternship\iTunesMusicStore\DataSets\album.csv'
 WITH
 (
+    FORMAT = 'CSV',
     FIRSTROW = 2,              -- Skip header and start reading data from the 2nd line of the file
     FIELDTERMINATOR = ',',     -- CSV (Comma-Separated Values) delimiter that defines the "divider" between columns
-    ROWTERMINATOR = '\n',
-    TABLOCK,                  -- "Bulk Update" lock on the entire table. Nobody else can write to or/ read from that table until the import is finished.
-    CODEPAGE = '65001'         -- UTF-8 (important for special characters)
+    FIELDQUOTE = '"',           -- CSV Contains "50" (quoted number), 50 (trailing space), blank value, etc
+    ROWTERMINATOR = '0x0a',
+    CODEPAGE = '65001',         -- UTF-8 (important for special characters)
+    ERRORFILE = 'E:\LabMentixInternship\error_rows.log', -- SQL creates an error file with bad rows
+    MAXERRORS = 100,
+    TABLOCK                  -- "Bulk Update" lock on the entire table. Nobody else can write to or/ read from that table until the import is finished.
 );
 GO
 
+Select * from RawAlbum
 -------------------------------------------------------------
 
 CREATE TABLE RawCustomer -- Table 3
 (
-    
+   CustomerId INT PRIMARY KEY,
+   FirstName NVARCHAR(80), -- supports Unicode
+   LastName NVARCHAR(80),
+   Company NVARCHAR(255),
+   Address NVARCHAR(255),
+   City NVARCHAR(100),
+   State NVARCHAR(50),
+   Country NVARCHAR(50),
+   PostalCode NVARCHAR(30),
+   Phone NVARCHAR(50),
+   Fax NVARCHAR(50),
+   Email NVARCHAR(75),
+   SupportRepId INT,
 );
+
+BULK INSERT RawCustomer
+FROM "E:\LabMentixInternship\iTunesMusicStore\DataSets\customer.csv"
+WITH
+(
+    FORMAT = 'CSV',
+    FIRSTROW = 2,              -- Skip header and start reading data from the 2nd line of the file
+    FIELDTERMINATOR = ',',     -- CSV (Comma-Separated Values) delimiter that defines the "divider" between columns
+    FIELDQUOTE = '"',           -- CSV Contains "50" (quoted number), 50 (trailing space), blank value, etc
+    ROWTERMINATOR = '0x0a',
+    CODEPAGE = '65001',         -- UTF-8 (important for special characters)
+    ERRORFILE = 'E:\LabMentixInternship\error_rows.log', -- SQL creates an error file with bad rows
+    MAXERRORS = 100,
+    TABLOCK                  -- "Bulk Update" lock on the entire table. Nobody else can write to or/ read from that table until the import is finished.
+);
+GO
+
+Select * from RawCustomer;
 --------------------------------------------------------------
 
 CREATE TABLE RawEmployee -- Table 4
 (
+    EmployeeId VARCHAR(50),
+    LastName VARCHAR(100),
+    FirstName VARCHAR(100),
+    Title VARCHAR(200),
+    ReportsTo VARCHAR(50),
+    Levels VARCHAR(10),
+    BirthDate VARCHAR(50),
+    HireDate VARCHAR(50),
+    Address VARCHAR(255),
+    City VARCHAR(100),
+    State VARCHAR(100),
+    Country VARCHAR(100),
+    PostalCode VARCHAR(20),
+    Phone VARCHAR(50),
+    Fax VARCHAR(50),
+    Email VARCHAR(200)
+);GO
+
+BULK INSERT RawEmployee
+FROM 'E:\LabMentixInternship\iTunesMusicStore\DataSets\employee.csv'
+WITH
+(
+    FORMAT = 'CSV',
+    FIRSTROW = 2,              
+    FIELDTERMINATOR = ',',     
+    FIELDQUOTE = '"',           
+    ROWTERMINATOR = '0x0a',
+    CODEPAGE = '65001', 
+    TABLOCK                
 );
+GO
+Select * from RawEmployee;
+--------------------------------------------------------------
 
 CREATE TABLE RawGenre -- Table 5
 (
-)
+    GenreId INT PRIMARY KEY,
+    Name VARCHAR(255)
+);GO
+
+BULK INSERT RawGenre
+FROM 'E:\LabMentixInternship\iTunesMusicStore\DataSets\genre.csv'
+WITH
+(
+    FIRSTROW = 2,              -- Skip header
+    FIELDTERMINATOR = ',',     -- CSV delimiter
+    ROWTERMINATOR = '\n',
+    TABLOCK,
+    CODEPAGE = '65001'         -- UTF-8 (important for special characters)
+);
+Select * from RawGenre;
+--------------------------------------------------------------
 
 CREATE TABLE RawInvoice -- Table 6
 (
@@ -154,45 +239,38 @@ CREATE TABLE RawInvoice -- Table 6
     BillingCountry VARCHAR(100),
     BillingPostalCode VARCHAR(20),
     Total DECIMAL(10,2)
-);
-
-BULK INSERT RawInvoice
-FROM 'C:\Data\invoice.csv'
-WITH
-(
-    FIRSTROW = 2,
-    FIELDTERMINATOR = ',',
-    ROWTERMINATOR = '\n',
-    TABLOCK,
-    CODEPAGE = '65001'
-);
-
---------------------------------------------------------------
-
-CREATE TABLE RawInvoiceLine -- Table 7
-(
-);
-
-CREATE TABLE RawMediaType -- Table 8
-(
-);
-
-CREATE TABLE RawPlaylist -- Table 9
-(
-);
-
-CREATE TABLE RawPlaylistTrack -- Table 10
-(
-);
-
-CREATE TABLE RawTrack -- Table 11
-(
-);
-
-
+);GO
 
 BULK INSERT RawInvoice
 FROM 'E:\LabMentixInternship\iTunesMusicStore\DataSets\invoice.csv'
+WITH
+(
+    FORMAT = 'CSV',
+    FIRSTROW = 2,              -- Skip header and start reading data from the 2nd line of the file
+    FIELDTERMINATOR = ',',     -- CSV (Comma-Separated Values) delimiter that defines the "divider" between columns
+    FIELDQUOTE = '"',           -- CSV Contains "50" (quoted number), 50 (trailing space), blank value, etc
+    ROWTERMINATOR = '0x0a',
+    CODEPAGE = '65001',         -- UTF-8 (important for special characters)
+    ERRORFILE = 'E:\LabMentixInternship\error_rows.log', -- SQL creates an error file with bad rows
+    MAXERRORS = 100,
+    TABLOCK    
+);
+
+Select * from RawInvoice;
+--------------------------------------------------------------
+
+CREATE TABLE RawInvoiceLine -- Table 7
+
+(
+    InvoiceLineId INT PRIMARY KEY,
+    InvoiceId INT,
+    TrackId INT,
+    UnitPrice DECIMAL(10,2),
+    Quantity INT
+ );
+
+BULK INSERT RawInvoiceLine
+FROM 'E:\LabMentixInternship\iTunesMusicStore\DataSets\invoice_line.csv'
 WITH
 (
     FIRSTROW = 2,              -- Skip header
@@ -201,6 +279,101 @@ WITH
     TABLOCK,
     CODEPAGE = '65001'         -- UTF-8 (important for special characters)
 );
+Select * from RawInvoiceLine;
 
+--------------------------------------------------------------
 
+CREATE TABLE RawMediaType -- Table 8
+(
+    RawMediaId INT PRIMARY KEY,
+    Name VARCHAR(300)
+);
 
+BULK INSERT RawMediaType
+FROM 'E:\LabMentixInternship\iTunesMusicStore\DataSets\media_type.csv'
+WITH
+(
+    FIRSTROW = 2,              -- Skip header
+    FIELDTERMINATOR = ',',     -- CSV delimiter
+    ROWTERMINATOR = '\n',
+    TABLOCK,
+    CODEPAGE = '65001'         -- UTF-8 (important for special characters)
+);
+Select * from RawMediaType;
+
+--------------------------------------------------------------
+
+CREATE TABLE RawPlaylist -- Table 9
+(
+    PlaylistId INT PRIMARY KEY,
+    Name VARCHAR(200)
+);
+
+BULK INSERT RawPlaylist
+FROM 'E:\LabMentixInternship\iTunesMusicStore\DataSets\playlist.csv'
+WITH
+(
+    FIRSTROW = 2,              -- Skip header
+    FIELDTERMINATOR = ',',     -- CSV delimiter
+    ROWTERMINATOR = '\n',
+    TABLOCK,
+    CODEPAGE = '65001'         -- UTF-8 (important for special characters)
+);
+Select * from RawPlaylist;
+
+--------------------------------------------------------------
+
+CREATE TABLE RawTrack -- Table 10
+(
+    TrackId VARCHAR(50),
+    Name VARCHAR(300),
+    AlbumId VARCHAR(50),
+    MediaTypeId VARCHAR(50),
+    GenreId VARCHAR(50),
+    Composer VARCHAR(500),
+    Milliseconds VARCHAR(50),
+    Bytes VARCHAR(50),       
+    UnitPrice DECIMAL(10,2)
+);
+
+BULK INSERT RawTrack
+FROM 'E:\LabMentixInternship\iTunesMusicStore\DataSets\track.csv'
+WITH
+(
+    FORMAT = 'CSV',
+    FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    FIELDQUOTE = '"',
+    ROWTERMINATOR = '0x0a',
+    CODEPAGE = '65001',
+    TABLOCK   
+);
+
+Select * from RawTrack;
+--------------------------------------------------------------
+
+CREATE TABLE RawPlaylistTrack -- Table 11
+(
+    PlaylistId INT,
+    TrackId VARCHAR(50)
+);
+
+BULK INSERT RawPlaylistTrack
+FROM 'E:\LabMentixInternship\iTunesMusicStore\DataSets\playlist_track.csv'
+WITH
+(
+    FIRSTROW = 2,              -- Skip header
+    FIELDTERMINATOR = ',',     -- CSV delimiter
+    ROWTERMINATOR = '\n',
+    TABLOCK,
+    CODEPAGE = '65001'         -- UTF-8 (important for special characters)
+);
+Select * from RawPlaylistTrack;
+
+--------------------------------------------------------------
+
+-- SANITY CHECK
+
+SELECT name 
+FROM sys.tables
+WHERE name LIKE 'Raw%';
