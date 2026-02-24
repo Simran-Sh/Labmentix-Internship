@@ -3,6 +3,8 @@
 --------------------------------------
 */
 
+Use iTunesMusic;
+
 SELECT name 
 FROM sys.tables
 WHERE name LIKE 'Raw%';

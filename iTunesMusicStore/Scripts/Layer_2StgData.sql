@@ -185,6 +185,12 @@ GO
 SELECT COUNT(*) FROM StgArtist;
 SELECT COUNT(*) FROM StgAlbum;
 SELECT COUNT(*) FROM StgCustomer;
+SELECT COUNT(*) FROM StgEmployee;
+SELECT COUNT(*) FROM StgGenre;
+SELECT COUNT(*) FROM StgInvoice;
+SELECT COUNT(*) FROM StgInvoiceLine;
+SELECT COUNT(*) FROM StgMediaType;
+SELECT COUNT(*) FROM StgTrack;
 
 
 EXEC dbo.uspLoadStaging;
@@ -200,6 +206,83 @@ FROM sys.tables
 WHERE name LIKE 'Dim%';
 
 SELECT DB_NAME();
+
+/*
+Update further Tables into Staging
+*/
+INSERT INTO StgGenre (GenreId, Name)
+SELECT
+    TRY_CAST(GenreId AS INT),
+    dbo.fnCleanText(Name)
+FROM RawGenre;
+
+INSERT INTO StgMediaType (MediaId, Name)
+SELECT
+    TRY_CAST(RawMediaId AS INT),
+    dbo.fnCleanText(Name)
+FROM RawMediaType;
+
+INSERT INTO StgTrack
+(
+    TrackId,
+    Name,
+    AlbumId,
+    MediaTypeId,
+    GenreId,
+    Composer,
+    Milliseconds,
+    Bytes,
+    UnitPrice
+)
+SELECT
+    TRY_CAST(TrackId AS INT),
+    dbo.fnCleanText(Name),
+    TRY_CAST(AlbumId AS INT),
+    TRY_CAST(MediaTypeId AS INT),
+    TRY_CAST(GenreId AS INT),
+    dbo.fnCleanText(Composer),
+    TRY_CAST(Milliseconds AS INT),
+    TRY_CAST(Bytes AS INT),
+    TRY_CAST(UnitPrice AS DECIMAL(10,2))
+FROM RawTrack;
+
+INSERT INTO StgEmployee
+(
+    EmployeeId,
+    LastName,
+    FirstName,
+    Title,
+    ReportsTo,
+    Levels,
+    BirthDate,
+    HireDate,
+    Address,
+    City,
+    State,
+    Country,
+    PostalCode,
+    Phone,
+    Fax,
+    Email
+)
+SELECT
+    TRY_CAST(EmployeeId AS INT),
+    dbo.fnCleanText(LastName),
+    dbo.fnCleanText(FirstName),
+    dbo.fnCleanText(Title),
+    ReportsTo,
+    Levels,
+    TRY_CONVERT(DATE, BirthDate, 105),
+    TRY_CONVERT(DATE, HireDate, 105),
+    Address,
+    City,
+    State,
+    Country,
+    PostalCode,
+    Phone,
+    Fax,
+    Email
+FROM RawEmployee;
 
 /*
 ----------------------------------------------------

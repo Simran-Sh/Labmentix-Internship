@@ -377,3 +377,13 @@ Select * from RawPlaylistTrack;
 SELECT name 
 FROM sys.tables
 WHERE name LIKE 'Raw%';
+
+SELECT COUNT(*) FROM RawArtist;
+SELECT COUNT(*) FROM RawAlbum;
+SELECT COUNT(*) FROM RawCustomer;
+SELECT COUNT(*) FROM RawEmployee;
+SELECT COUNT(*) FROM RawGenre;
+SELECT COUNT(*) FROM RawInvoice;
+SELECT COUNT(*) FROM RawInvoiceLine;
+SELECT COUNT(*) FROM RawMediaType;
+SELECT COUNT(*) FROM RawTrack;
