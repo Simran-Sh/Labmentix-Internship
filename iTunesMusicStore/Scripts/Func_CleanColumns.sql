@@ -1,6 +1,6 @@
 
 
--- universal text cleaning function
+-- Universal text cleaning function
 
 CREATE OR ALTER FUNCTION dbo.fnCleanText (@Input VARCHAR(500))
 RETURNS VARCHAR(500)
