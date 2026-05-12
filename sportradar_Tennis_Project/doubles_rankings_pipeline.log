@@ -1,0 +1,21 @@
+2026-05-11 01:09:25,686 - INFO - ===== PIPELINE STARTED =====
+2026-05-11 01:09:25,688 - INFO - Fetching data for ATP
+2026-05-11 01:09:27,480 - ERROR - API Fetch Failed for ATP: 404 Client Error: Not Found for url: https://api.sportradar.com/tennis/trial/v3/en/rankings/atp/doubles.json
+2026-05-11 01:09:27,480 - INFO - Fetching data for WTA
+2026-05-11 01:09:28,818 - ERROR - API Fetch Failed for WTA: 404 Client Error: Not Found for url: https://api.sportradar.com/tennis/trial/v3/en/rankings/wta/doubles.json
+2026-05-11 01:09:28,818 - INFO - Initial Shape: (0, 0)
+2026-05-11 01:09:28,818 - INFO - 
+Null Values:
+2026-05-11 01:09:28,818 - INFO - Series([], dtype: float64)
+2026-05-11 01:09:28,856 - INFO - 
+Duplicate Rows: 0
+2026-05-11 01:09:28,856 - ERROR - Data Cleaning Failed: 'rank'
+2026-05-11 01:09:28,862 - INFO - CSV Exported: doubles_competitor_rankings.csv
+2026-05-11 01:09:29,006 - ERROR - SQL Load Failed: (pyodbc.ProgrammingError) ('42000', "[42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Incorrect syntax near ')'. (102) (SQLExecDirectW)")
+[SQL: 
+CREATE TABLE doubles_competitor_rankings (
+)
+
+]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-05-11 01:09:29,006 - INFO - ===== PIPELINE COMPLETED =====
