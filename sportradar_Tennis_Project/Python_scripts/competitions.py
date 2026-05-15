@@ -2,9 +2,7 @@
 # SPORTRADAR TENNIS COMPETITIONS PIPELINE
 # ============================================================
 
-
 import urllib
-
 import requests
 import logging
 from urllib3 import response
